@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: precheck-collect
+  profiles:
+    active: local
+
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.sks.precheck.collect.domain
+  configuration:
+    map-underscore-to-camel-case: true

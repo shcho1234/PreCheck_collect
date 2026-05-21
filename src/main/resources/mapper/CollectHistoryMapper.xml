@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+    CollectHistoryMapper.xml
+    TB_COLLECT_HISTORY 테이블 CRUD
+    INSERT/UPDATE/SELECT 주체: 로그 수집 서버
+-->
+<mapper namespace="com.sks.precheck.collect.mapper.CollectHistoryMapper">
+
+    <!-- 수집 이력 1건 INSERT -->
+    <!-- SEQUENCE nextval은 서비스에서 미리 조회하여 파라미터로 전달한다 -->
+    <insert id="insert" parameterType="com.sks.precheck.collect.domain.CollectHistory">
+        INSERT INTO TB_COLLECT_HISTORY (
+            COLLECT_HISTORY_ID,
+            SERVER_ID,
+            SERVER_IP,
+            SOURCE_FILE_PATH,
+            SCHEDULE_TYPE,
+            COLLECT_STATUS,
+            COLLECTED_COUNT,
+            LAST_LINE_NUMBER,
+            FILE_SIZE_BYTES,
+            RETRY_COUNT,
+            FAIL_REASON,
+            COLLECT_START_AT,
+            COLLECT_END_AT,
+            COLLECT_DATE,
+            CREATED_AT,
+            UPDATED_AT
+        ) VALUES (
+            #{collectHistoryId},
+            #{serverId},
+            #{serverIp},
+            #{sourceFilePath},
+            #{scheduleType},
+            #{collectStatus},
+            #{collectedCount},
+            #{lastLineNumber},
+            #{fileSizeBytes},
+            #{retryCount},
+            #{failReason},
+            #{collectStartAt},
+            #{collectEndAt},
+            #{collectDate},
+            #{createdAt},
+            #{updatedAt}
+        )
+    </insert>
+
+    <!-- 수집 상태 UPDATE -->
+    <update id="updateCollectStatus" parameterType="com.sks.precheck.collect.domain.CollectHistory">
+        UPDATE TB_COLLECT_HISTORY
+        <set>
+            <if test="collectStatus != null and collectStatus != ''">
+                COLLECT_STATUS = #{collectStatus},
+            </if>
+            <if test="collectedCount != null">
+                COLLECTED_COUNT = #{collectedCount},
+            </if>
+            <if test="lastLineNumber != null">
+                LAST_LINE_NUMBER = #{lastLineNumber},
+            </if>
+            <if test="fileSizeBytes != null">
+                FILE_SIZE_BYTES = #{fileSizeBytes},
+            </if>
+            <if test="retryCount != null">
+                RETRY_COUNT = #{retryCount},
+            </if>
+            <if test="failReason != null">
+                FAIL_REASON = #{failReason},
+            </if>
+            <if test="collectEndAt != null">
+                COLLECT_END_AT = #{collectEndAt},
+            </if>
+            UPDATED_AT = #{updatedAt}
+        </set>
+        WHERE COLLECT_HISTORY_ID = #{collectHistoryId}
+    </update>
+
+    <!-- 주기 수집용: 마지막 성공 수집의 라인번호 조회 -->
+    <!-- 결과 없으면 null → 서비스에서 0으로 처리 (파일 처음부터 읽기) -->
+    <select id="findLastLineNumber" resultType="java.lang.Long">
+        SELECT LAST_LINE_NUMBER
+        FROM TB_COLLECT_HISTORY
+        WHERE SERVER_ID = #{serverId}
+          AND SOURCE_FILE_PATH = #{sourceFilePath}
+          AND COLLECT_STATUS = 'SUCCESS'
+        ORDER BY COLLECT_START_AT DESC
+        FETCH FIRST 1 ROWS ONLY
+    </select>
+
+</mapper>
+

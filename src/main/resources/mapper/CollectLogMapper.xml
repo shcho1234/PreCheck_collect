@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+    CollectLogMapper.xml
+    TB_COLLECT_LOG 테이블 CRUD
+    INSERT 주체: 로그 수집 서버
+    SELECT 주체: 로그 분석 서버
+-->
+<mapper namespace="com.sks.precheck.collect.mapper.CollectLogMapper">
+
+    <!-- 수집 로그 1건 INSERT -->
+    <!-- SEQUENCE nextval은 서비스에서 미리 조회하여 파라미터로 전달한다 -->
+    <insert id="insert" parameterType="com.sks.precheck.collect.domain.CollectLog">
+        INSERT INTO TB_COLLECT_LOG (
+            COLLECT_LOG_ID,
+            SERVER_ID,
+            SERVER_IP,
+            SOURCE_FILE_PATH,
+            LOG_TYPE,
+            LOG_ID,
+            LOG_TIMESTAMP,
+            LOG_CONTENT,
+            LOG_VALUE,
+            RAW_LOG,
+            COLLECT_DATE,
+            COLLECT_DATETIME,
+            SCHEDULE_TYPE,
+            LINE_NUMBER,
+            CREATED_AT
+        ) VALUES (
+            #{collectLogId},
+            #{serverId},
+            #{serverIp},
+            #{sourceFilePath},
+            #{logType},
+            #{logId},
+            #{logTimestamp},
+            #{logContent},
+            #{logValue},
+            #{rawLog},
+            #{collectDate},
+            #{collectDatetime},
+            #{scheduleType},
+            #{lineNumber},
+            #{createdAt}
+        )
+    </insert>
+
+    <!-- 분석 서버용: 날짜/서버/타입 기준 조회 (LOG_ID는 선택 조건) -->
+    <select id="findForAnalyze" resultType="com.sks.precheck.collect.domain.CollectLog">
+        SELECT
+            COLLECT_LOG_ID,
+            SERVER_ID,
+            SERVER_IP,
+            SOURCE_FILE_PATH,
+            LOG_TYPE,
+            LOG_ID,
+            LOG_TIMESTAMP,
+            LOG_CONTENT,
+            LOG_VALUE,
+            RAW_LOG,
+            COLLECT_DATE,
+            COLLECT_DATETIME,
+            SCHEDULE_TYPE,
+            LINE_NUMBER,
+            CREATED_AT
+        FROM TB_COLLECT_LOG
+        <where>
+            COLLECT_DATE = #{collectDate}
+            AND SERVER_ID = #{serverId}
+            AND LOG_TYPE = #{logType}
+            <if test="logId != null and logId != ''">
+                AND LOG_ID = #{logId}
+            </if>
+        </where>
+        ORDER BY LOG_TIMESTAMP ASC
+    </select>
+
+</mapper>
+

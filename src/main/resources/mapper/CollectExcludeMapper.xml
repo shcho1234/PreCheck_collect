@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+    CollectExcludeMapper.xml
+    TB_COLLECT_EXCLUDE 테이블 CRUD
+    INSERT/SELECT 주체: 로그 수집 서버
+-->
+<mapper namespace="com.sks.precheck.collect.mapper.CollectExcludeMapper">
+
+    <!-- 영구 제외 대상 1건 INSERT -->
+    <!-- SEQUENCE nextval은 서비스에서 미리 조회하여 파라미터로 전달한다 -->
+    <insert id="insert" parameterType="com.sks.precheck.collect.domain.CollectExclude">
+        INSERT INTO TB_COLLECT_EXCLUDE (
+            COLLECT_EXCLUDE_ID,
+            SERVER_ID,
+            SERVER_IP,
+            SOURCE_FILE_PATH,
+            EXCLUDE_REASON,
+            EXCLUDE_FILE_SIZE,
+            EXCLUDE_DETAIL,
+            RESTORE_YN,
+            RESTORE_AT,
+            RESTORE_MEMO,
+            EXCLUDE_DATE,
+            CREATED_AT,
+            UPDATED_AT
+        ) VALUES (
+            #{collectExcludeId},
+            #{serverId},
+            #{serverIp},
+            #{sourceFilePath},
+            #{excludeReason},
+            #{excludeFileSize},
+            #{excludeDetail},
+            COALESCE(#{restoreYn}, 'N'),
+            #{restoreAt},
+            #{restoreMemo},
+            #{excludeDate},
+            #{createdAt},
+            #{updatedAt}
+        )
+    </insert>
+
+    <!-- 수집 전 제외 대상 여부 확인 -->
+    <!-- RESTORE_YN='N' 이 존재하면 제외 대상으로 판단한다 -->
+    <select id="countActiveExclude" resultType="int">
+        SELECT COUNT(*)
+        FROM TB_COLLECT_EXCLUDE
+        WHERE SERVER_ID = #{serverId}
+          AND SOURCE_FILE_PATH = #{sourceFilePath}
+          AND RESTORE_YN = 'N'
+    </select>
+
+</mapper>
+

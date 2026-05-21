@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Copy-Item \"c:\\\\Users\\\\20200161\\\\Desktop\\\\PreCheck_work\\\\Precheck_project\\\\Precheck_SKSCh1\\\\precheck_collect\\\\collect\\\\src\\\\main\\\\resources\\\\log4j2-spring.xml\" -Destination \"c:\\\\Users\\\\20200161\\\\Desktop\\\\PreCheck_work\\\\Precheck_project\\\\Precheck_SKSCh1\\\\precheck_collect\\\\collect\\\\bin\\\\main\\\\log4j2-spring.xml\" -Force)",
+      "PowerShell(Copy-Item \"c:\\\\Users\\\\20200161\\\\Desktop\\\\PreCheck_work\\\\Precheck_project\\\\Precheck_SKSCh1\\\\precheck_collect\\\\collect\\\\src\\\\main\\\\resources\\\\application-local.yml\" -Destination \"c:\\\\Users\\\\20200161\\\\Desktop\\\\PreCheck_work\\\\Precheck_project\\\\Precheck_SKSCh1\\\\precheck_collect\\\\collect\\\\bin\\\\main\\\\application-local.yml\" -Force)"
+    ]
+  }
+}

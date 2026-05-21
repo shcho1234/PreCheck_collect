@@ -1,0 +1,19 @@
+spring:
+  main:
+    banner-mode: off
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: dnwls098!@#
+
+precheck:
+  collect:
+    schedule-file-path: C:/Users/20200161/cfg/PreCheck_CollectLogs_Schedule.conf
+    mode: local   # local: 로컬 파일 직접 읽기 / sftp: SFTP 원격 수집 (기본값)
+    # 스케쥴러에 [localtest01][127.0.0.1][C:/test-logs/sample.log][주기|*|000000|1|235959]로 설정
+    # mode: sftp
+  sftp:
+    port: 22
+    username: local_user
+    password: local_pass

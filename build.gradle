@@ -41,6 +41,14 @@ dependencies {
 	testAnnotationProcessor 'org.projectlombok:lombok'
 }
 
+compileJava {
+	options.encoding = 'UTF-8'
+}
+
+tasks.named('bootRun') {
+	jvmArgs = ['-Dfile.encoding=UTF-8', '-Dconsole.encoding=UTF-8']
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
 }

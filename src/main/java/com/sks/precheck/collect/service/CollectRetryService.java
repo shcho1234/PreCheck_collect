@@ -183,6 +183,8 @@ public class CollectRetryService {
                     CollectLog parsed = logNormalizeParser.parseNormalizedLogFromLine(lineText, lineNumber);
                     if (parsed != null) {
                         parsedLogs.add(parsed);
+                    } else {
+                        lineReadState.invalidLogCount++;
                     }
                 }
         );
@@ -239,8 +241,8 @@ public class CollectRetryService {
         update.setUpdatedAt(LocalDateTime.now());
         collectHistoryMapper.updateCollectStatus(update);
 
-        log.info("수집 완료 - 서버: {}, 파일: {}, 타입: {}, 저장건수: {}",
-                serverId, sourceFilePath, scheduleType, parsedLogs.size());
+        log.info("수집 완료 - 서버: {}, 파일: {}, 타입: {}, 저장건수: {}, 실패건수: {}",
+                serverId, sourceFilePath, scheduleType, parsedLogs.size(), lineReadState.invalidLogCount);
         return parsedLogs.size();
     }
 
@@ -352,10 +354,12 @@ public class CollectRetryService {
     private static class LineReadState {
         private long lastReadLineNumber;
         private long totalReadBytes;
+        private long invalidLogCount;
         private boolean exceededPartSizeLimit;
 
         private LineReadState(long lastReadLineNumber) {
             this.lastReadLineNumber = lastReadLineNumber;
+            this.invalidLogCount = 0;
         }
     }
 }

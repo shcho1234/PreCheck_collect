@@ -2,7 +2,6 @@ package com.sks.precheck.collect.parser;
 
 import com.sks.precheck.collect.common.exception.CollectException;
 import com.sks.precheck.collect.vo.CollectScheduleVo;
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -33,20 +32,26 @@ public class CollectScheduleParser {
      */
     public List<CollectScheduleVo> parseScheduleFile(String filePath) {
         Path path = Path.of(filePath);
+        log.info("스케줄 설정 파일 파싱 시작 - filePath: {}, absolutePath: {}", filePath, path.toAbsolutePath());
+
         List<CollectScheduleVo> result = new ArrayList<>();
 
-        try (BufferedReader reader = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
-            String line;
-            int lineNumber = 0;
-            while ((line = reader.readLine()) != null) {
-                lineNumber++;
-                CollectScheduleVo schedule = parseLine(line, lineNumber);
+        try {
+            List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);
+            for (int i = 0; i < lines.size(); i++) {
+                CollectScheduleVo schedule = parseLine(lines.get(i), i + 1);
                 if (schedule != null) {
                     result.add(schedule);
                 }
             }
+            log.info("스케줄 설정 파일 파싱 완료 - absolutePath: {}, 유효 스케줄 건수: {}", path.toAbsolutePath(), result.size());
+            for (int i = 0; i < result.size(); i++) {
+                CollectScheduleVo s = result.get(i);
+                log.info("  [{}] serverId: {}, serverIp: {}, sourceFilePath: {}, scheduleExpression: {}",
+                        i + 1, s.getServerId(), s.getServerIp(), s.getSourceFilePath(), s.getScheduleExpression());
+            }
         } catch (IOException e) {
-            log.error("스케줄 설정 파일 읽기 실패 - filePath: {}, error: {}", filePath, e.getMessage());
+            log.error("스케줄 설정 파일 읽기 실패 - filePath: {}, absolutePath: {}, error: {}", filePath, path.toAbsolutePath(), e.getMessage());
             throw new CollectException("스케줄 설정 파일 읽기 실패1: " + filePath, e);
         }
 

@@ -61,8 +61,8 @@ public class LogNormalizeParser {
                     "@@@$"
     );
 
-    // LOG_ID는 대문자·숫자·언더스코어로만 구성되어야 하며 최대 30자이다.
-    private static final Pattern LOG_ID_PATTERN = Pattern.compile("^[A-Z0-9_]{1,30}$");
+    // LOG_ID는 영문(대소문자)·숫자·언더스코어·한글·공백을 허용하며 최대 30자이다.
+    private static final Pattern LOG_ID_PATTERN = Pattern.compile("^[A-Za-z0-9_\\p{IsHangul} ]{1,30}$");
 
     // $값$ 형식의 수치 토큰 패턴. 내부 값을 "value" 그룹으로 추출한다.
     private static final Pattern LOG_VALUE_PATTERN = Pattern.compile("^\\$(?<value>[^$]+)\\$$");

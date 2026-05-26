@@ -1,201 +1,79 @@
-2026-05-26 14:42:43.638 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 7944 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\bin\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
-2026-05-26 14:42:43.644 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - The following 1 profile is active: "local"
-2026-05-26 14:42:44.403 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - Started CollectApplication in 1.055 seconds (process running for 1.684)
-2026-05-26 14:54:12.683 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 2496 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\bin\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
-2026-05-26 14:54:12.687 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - The following 1 profile is active: "local"
-2026-05-26 14:54:13.595 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - Started CollectApplication in 1.31 seconds (process running for 1.678)
-2026-05-26 14:56:30.229 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 1008 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\bin\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
-2026-05-26 14:56:30.232 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - The following 1 profile is active: "local"
-2026-05-26 14:56:31.360 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - Started CollectApplication in 1.583 seconds (process running for 2.153)
-2026-05-26 14:58:50.422 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - PreCheck 로그 수집 서버 기동 시작
-2026-05-26 14:58:50.390 [scheduling-1] ERROR com.sks.precheck.collect.scheduler.CollectScheduler - 스케줄 실행 실패 - 서버: localtest01, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\monitoring_120_log.0519
-org.springframework.retry.backoff.BackOffInterruptedException: Thread interrupted while sleeping
-	at org.springframework.retry.backoff.FixedBackOffPolicy.doBackOff(FixedBackOffPolicy.java:102) ~[spring-retry-2.0.12.jar:?]
-	at org.springframework.retry.backoff.StatelessBackOffPolicy.backOff(StatelessBackOffPolicy.java:36) ~[spring-retry-2.0.12.jar:?]
-	at org.springframework.retry.support.RetryTemplate.doExecute(RetryTemplate.java:377) ~[spring-retry-2.0.12.jar:?]
-	at org.springframework.retry.support.RetryTemplate.execute(RetryTemplate.java:246) ~[spring-retry-2.0.12.jar:?]
-	at org.springframework.retry.interceptor.RetryOperationsInterceptor.invoke(RetryOperationsInterceptor.java:135) ~[spring-retry-2.0.12.jar:?]
-	at org.springframework.retry.annotation.AnnotationAwareRetryOperationsInterceptor.invoke(AnnotationAwareRetryOperationsInterceptor.java:162) ~[spring-retry-2.0.12.jar:?]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.8.jar:6.2.8]
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728) ~[spring-aop-6.2.8.jar:6.2.8]
-	at com.sks.precheck.collect.service.CollectRetryService$$SpringCGLIB$$0.collectWithRetry(<generated>) ~[main/:?]
-	at com.sks.precheck.collect.service.CollectService.collect(CollectService.java:92) ~[main/:?]
-	at com.sks.precheck.collect.scheduler.CollectScheduler.run(CollectScheduler.java:92) ~[main/:?]
-	at jdk.internal.reflect.GeneratedMethodAccessor3.invoke(Unknown Source) ~[?:?]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[?:?]
-	at org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:130) ~[spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$2(ScheduledMethodRunnable.java:124) ~[spring-context-6.2.8.jar:6.2.8]
-	at io.micrometer.observation.Observation.observe(Observation.java:498) [micrometer-observation-1.15.1.jar:1.15.1]
-	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:124) [spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.scheduling.config.Task$OutcomeTrackingRunnable.run(Task.java:85) [spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) [spring-context-6.2.8.jar:6.2.8]
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) [?:?]
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) [?:?]
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) [?:?]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) [?:?]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) [?:?]
-	at java.base/java.lang.Thread.run(Thread.java:840) [?:?]
-Caused by: java.lang.InterruptedException: sleep interrupted
-	at java.base/java.lang.Thread.sleep(Native Method) ~[?:?]
-	at org.springframework.retry.backoff.ThreadWaitSleeper.sleep(ThreadWaitSleeper.java:31) ~[spring-retry-2.0.12.jar:?]
-	at org.springframework.retry.backoff.FixedBackOffPolicy.doBackOff(FixedBackOffPolicy.java:98) ~[spring-retry-2.0.12.jar:?]
-	... 25 more
-2026-05-26 14:58:50.465 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 1008 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\bin\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
-2026-05-26 14:58:50.466 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - The following 1 profile is active: "local"
-2026-05-26 14:58:50.675 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - Started CollectApplication in 0.245 seconds (process running for 141.464)
-2026-05-26 14:58:50.676 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 시작 - filePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
-2026-05-26 14:58:50.678 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 완료 - absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, 유효 스케줄 건수: 2
-2026-05-26 14:59:50.750 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 시작 - filePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
-2026-05-26 14:59:50.751 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 완료 - absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, 유효 스케줄 건수: 2
-2026-05-26 15:00:54.472 [scheduling-1] ERROR com.sks.precheck.collect.scheduler.CollectScheduler - 스케줄 실행 실패 - 서버: localtest01, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\monitoring_120_log.0519
-org.springframework.retry.backoff.BackOffInterruptedException: Thread interrupted while sleeping
-	at org.springframework.retry.backoff.FixedBackOffPolicy.doBackOff(FixedBackOffPolicy.java:102) ~[spring-retry-2.0.12.jar:?]
-	at org.springframework.retry.backoff.StatelessBackOffPolicy.backOff(StatelessBackOffPolicy.java:36) ~[spring-retry-2.0.12.jar:?]
-	at org.springframework.retry.support.RetryTemplate.doExecute(RetryTemplate.java:377) ~[spring-retry-2.0.12.jar:?]
-	at org.springframework.retry.support.RetryTemplate.execute(RetryTemplate.java:246) ~[spring-retry-2.0.12.jar:?]
-	at org.springframework.retry.interceptor.RetryOperationsInterceptor.invoke(RetryOperationsInterceptor.java:135) ~[spring-retry-2.0.12.jar:?]
-	at org.springframework.retry.annotation.AnnotationAwareRetryOperationsInterceptor.invoke(AnnotationAwareRetryOperationsInterceptor.java:162) ~[spring-retry-2.0.12.jar:?]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.8.jar:6.2.8]
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728) ~[spring-aop-6.2.8.jar:6.2.8]
-	at com.sks.precheck.collect.service.CollectRetryService$$SpringCGLIB$$0.collectWithRetry(<generated>) ~[main/:?]
-	at com.sks.precheck.collect.service.CollectService.collect(CollectService.java:92) ~[main/:?]
-	at com.sks.precheck.collect.scheduler.CollectScheduler.run(CollectScheduler.java:92) ~[main/:?]
-	at jdk.internal.reflect.GeneratedMethodAccessor5.invoke(Unknown Source) ~[?:?]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[?:?]
-	at org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:130) ~[spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$2(ScheduledMethodRunnable.java:124) ~[spring-context-6.2.8.jar:6.2.8]
-	at io.micrometer.observation.Observation.observe(Observation.java:498) [micrometer-observation-1.15.1.jar:1.15.1]
-	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:124) [spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.scheduling.config.Task$OutcomeTrackingRunnable.run(Task.java:85) [spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) [spring-context-6.2.8.jar:6.2.8]
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) [?:?]
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) [?:?]
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) [?:?]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) [?:?]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) [?:?]
-	at java.base/java.lang.Thread.run(Thread.java:840) [?:?]
-Caused by: java.lang.InterruptedException: sleep interrupted
-	at java.base/java.lang.Thread.sleep(Native Method) ~[?:?]
-	at org.springframework.retry.backoff.ThreadWaitSleeper.sleep(ThreadWaitSleeper.java:31) ~[spring-retry-2.0.12.jar:?]
-	at org.springframework.retry.backoff.FixedBackOffPolicy.doBackOff(FixedBackOffPolicy.java:98) ~[spring-retry-2.0.12.jar:?]
-	... 25 more
-2026-05-26 15:00:54.504 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - PreCheck 로그 수집 서버 기동 시작
-2026-05-26 15:00:54.558 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 1008 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\bin\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
-2026-05-26 15:00:54.558 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - The following 1 profile is active: "local"
-2026-05-26 15:00:54.833 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - Started CollectApplication in 0.322 seconds (process running for 265.619)
-2026-05-26 15:00:54.834 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 시작 - filePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
-2026-05-26 15:00:54.835 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 완료 - absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, 유효 스케줄 건수: 2
-2026-05-26 15:00:56.298 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - PreCheck 로그 수집 서버 기동 시작
-2026-05-26 15:00:56.342 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 1008 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\bin\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
-2026-05-26 15:00:56.343 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - The following 1 profile is active: "local"
-2026-05-26 15:00:56.499 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - Started CollectApplication in 0.196 seconds (process running for 267.285)
-2026-05-26 15:00:56.501 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 시작 - filePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
-2026-05-26 15:00:56.502 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 완료 - absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, 유효 스케줄 건수: 2
-2026-05-26 15:01:56.577 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 시작 - filePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
-2026-05-26 15:01:56.579 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 완료 - absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, 유효 스케줄 건수: 2
-2026-05-26 15:03:51.054 [scheduling-1] ERROR com.sks.precheck.collect.scheduler.CollectScheduler - 스케줄 실행 실패 - 서버: localtest01, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\monitoring_120_log.0519
-org.springframework.retry.backoff.BackOffInterruptedException: Thread interrupted while sleeping
-	at org.springframework.retry.backoff.FixedBackOffPolicy.doBackOff(FixedBackOffPolicy.java:102) ~[spring-retry-2.0.12.jar:?]
-	at org.springframework.retry.backoff.StatelessBackOffPolicy.backOff(StatelessBackOffPolicy.java:36) ~[spring-retry-2.0.12.jar:?]
-	at org.springframework.retry.support.RetryTemplate.doExecute(RetryTemplate.java:377) ~[spring-retry-2.0.12.jar:?]
-	at org.springframework.retry.support.RetryTemplate.execute(RetryTemplate.java:246) ~[spring-retry-2.0.12.jar:?]
-	at org.springframework.retry.interceptor.RetryOperationsInterceptor.invoke(RetryOperationsInterceptor.java:135) ~[spring-retry-2.0.12.jar:?]
-	at org.springframework.retry.annotation.AnnotationAwareRetryOperationsInterceptor.invoke(AnnotationAwareRetryOperationsInterceptor.java:162) ~[spring-retry-2.0.12.jar:?]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.8.jar:6.2.8]
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728) ~[spring-aop-6.2.8.jar:6.2.8]
-	at com.sks.precheck.collect.service.CollectRetryService$$SpringCGLIB$$0.collectWithRetry(<generated>) ~[main/:?]
-	at com.sks.precheck.collect.service.CollectService.collect(CollectService.java:92) ~[main/:?]
-	at com.sks.precheck.collect.scheduler.CollectScheduler.run(CollectScheduler.java:92) ~[main/:?]
-	at jdk.internal.reflect.GeneratedMethodAccessor8.invoke(Unknown Source) ~[?:?]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[?:?]
-	at org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:130) ~[spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$2(ScheduledMethodRunnable.java:124) ~[spring-context-6.2.8.jar:6.2.8]
-	at io.micrometer.observation.Observation.observe(Observation.java:498) [micrometer-observation-1.15.1.jar:1.15.1]
-	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:124) [spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.scheduling.config.Task$OutcomeTrackingRunnable.run(Task.java:85) [spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) [spring-context-6.2.8.jar:6.2.8]
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) [?:?]
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) [?:?]
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) [?:?]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) [?:?]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) [?:?]
-	at java.base/java.lang.Thread.run(Thread.java:840) [?:?]
-Caused by: java.lang.InterruptedException: sleep interrupted
-	at java.base/java.lang.Thread.sleep(Native Method) ~[?:?]
-	at org.springframework.retry.backoff.ThreadWaitSleeper.sleep(ThreadWaitSleeper.java:31) ~[spring-retry-2.0.12.jar:?]
-	at org.springframework.retry.backoff.FixedBackOffPolicy.doBackOff(FixedBackOffPolicy.java:98) ~[spring-retry-2.0.12.jar:?]
-	... 25 more
-2026-05-26 15:03:51.098 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - PreCheck 로그 수집 서버 기동 시작
-2026-05-26 15:03:51.140 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 1008 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\bin\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
-2026-05-26 15:03:51.141 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - The following 1 profile is active: "local"
-2026-05-26 15:03:51.389 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - Started CollectApplication in 0.284 seconds (process running for 442.171)
-2026-05-26 15:03:51.389 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 시작 - filePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
-2026-05-26 15:03:51.390 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 완료 - absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, 유효 스케줄 건수: 2
-2026-05-26 15:03:51.391 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser -   [1] serverId: localtest01, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\monitoring_120_log.0519, scheduleExpression: 주기|*|090000|2|235959
-2026-05-26 15:03:51.391 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser -   [2] serverId: localtest02, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\monitoring_141_log.0519, scheduleExpression: 배치|*|165200
-2026-05-26 15:19:00.495 [scheduling-1] ERROR com.sks.precheck.collect.service.CollectRetryService - 수집 재시도 모두 실패 - 서버: localtest01, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\monitoring_120_log.0519
-com.sks.precheck.collect.common.exception.CollectException: 로컬 파일 크기 조회 실패: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\monitoring_120_log.0519
-	at com.sks.precheck.collect.service.LocalFileService.getFileSizeBytes(LocalFileService.java:34) ~[main/:?]
-	at com.sks.precheck.collect.service.CollectRetryService.collectWithRetry(CollectRetryService.java:131) ~[main/:?]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[?:?]
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-6.2.8.jar:6.2.8]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.2.8.jar:6.2.8]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.2.8.jar:6.2.8]
-	at org.springframework.retry.interceptor.RetryOperationsInterceptor$1.doWithRetry(RetryOperationsInterceptor.java:114) ~[spring-retry-2.0.12.jar:?]
-	at org.springframework.retry.support.RetryTemplate.doExecute(RetryTemplate.java:357) ~[spring-retry-2.0.12.jar:?]
-	at org.springframework.retry.support.RetryTemplate.execute(RetryTemplate.java:246) ~[spring-retry-2.0.12.jar:?]
-	at org.springframework.retry.interceptor.RetryOperationsInterceptor.invoke(RetryOperationsInterceptor.java:135) ~[spring-retry-2.0.12.jar:?]
-	at org.springframework.retry.annotation.AnnotationAwareRetryOperationsInterceptor.invoke(AnnotationAwareRetryOperationsInterceptor.java:162) ~[spring-retry-2.0.12.jar:?]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.8.jar:6.2.8]
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728) ~[spring-aop-6.2.8.jar:6.2.8]
-	at com.sks.precheck.collect.service.CollectRetryService$$SpringCGLIB$$0.collectWithRetry(<generated>) ~[main/:?]
-	at com.sks.precheck.collect.service.CollectService.collect(CollectService.java:92) ~[main/:?]
-	at com.sks.precheck.collect.scheduler.CollectScheduler.run(CollectScheduler.java:92) ~[main/:?]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[?:?]
-	at org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:130) ~[spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$2(ScheduledMethodRunnable.java:124) ~[spring-context-6.2.8.jar:6.2.8]
-	at io.micrometer.observation.Observation.observe(Observation.java:498) [micrometer-observation-1.15.1.jar:1.15.1]
-	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:124) [spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.scheduling.config.Task$OutcomeTrackingRunnable.run(Task.java:85) [spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) [spring-context-6.2.8.jar:6.2.8]
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) [?:?]
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) [?:?]
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) [?:?]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) [?:?]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) [?:?]
-	at java.base/java.lang.Thread.run(Thread.java:840) [?:?]
-Caused by: java.nio.file.NoSuchFileException: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\monitoring_120_log.0519
-	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85) ~[?:?]
-	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
-	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
-	at java.base/sun.nio.fs.WindowsFileAttributeViews$Basic.readAttributes(WindowsFileAttributeViews.java:53) ~[?:?]
-	at java.base/sun.nio.fs.WindowsFileAttributeViews$Basic.readAttributes(WindowsFileAttributeViews.java:38) ~[?:?]
-	at java.base/sun.nio.fs.WindowsFileSystemProvider.readAttributes(WindowsFileSystemProvider.java:199) ~[?:?]
-	at java.base/java.nio.file.Files.readAttributes(Files.java:1851) ~[?:?]
-	at java.base/java.nio.file.Files.size(Files.java:2468) ~[?:?]
-	at com.sks.precheck.collect.service.LocalFileService.getFileSizeBytes(LocalFileService.java:32) ~[main/:?]
-	... 34 more
-2026-05-26 15:19:01.502 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 시작 - filePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
-2026-05-26 15:19:01.504 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 완료 - absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, 유효 스케줄 건수: 2
-2026-05-26 15:19:01.505 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser -   [1] serverId: localtest01, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\monitoring_120_log.0519, scheduleExpression: 주기|*|090000|2|235959
-2026-05-26 15:19:01.506 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser -   [2] serverId: localtest02, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\monitoring_141_log.0519, scheduleExpression: 배치|*|165200
-2026-05-26 15:34:12.019 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 12888 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\bin\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
-2026-05-26 15:34:12.021 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - The following 1 profile is active: "local"
-2026-05-26 15:34:12.788 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - Started CollectApplication in 1.05 seconds (process running for 1.605)
-2026-05-26 15:34:12.797 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 시작 - filePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
-2026-05-26 15:34:12.798 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 완료 - absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, 유효 스케줄 건수: 2
-2026-05-26 15:34:12.799 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser -   [1] serverId: localtest01, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\monitoring_120_log.0519, scheduleExpression: 주기|*|090000|2|235959
-2026-05-26 15:34:12.799 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser -   [2] serverId: localtest02, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\monitoring_141_log.0519, scheduleExpression: 배치|*|165200
-2026-05-26 15:35:12.870 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 시작 - filePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
-2026-05-26 15:35:12.873 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 완료 - absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, 유효 스케줄 건수: 2
-2026-05-26 15:35:12.874 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser -   [1] serverId: localtest01, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\monitoring_120_log.0519, scheduleExpression: 주기|*|090000|2|235959
-2026-05-26 15:35:12.874 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser -   [2] serverId: localtest02, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\monitoring_141_log.0519, scheduleExpression: 배치|*|165200
+2026-05-26 17:40:54.295 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 16348 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\bin\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
+2026-05-26 17:40:54.299 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - The following 1 profile is active: "local"
+2026-05-26 17:40:55.390 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - Started CollectApplication in 1.538 seconds (process running for 2.099)
+2026-05-26 17:40:55.399 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 시작 - filePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
+2026-05-26 17:40:55.402 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 완료 - absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, 유효 스케줄 건수: 2
+2026-05-26 17:40:55.402 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser -   [1] serverId: localtest01, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0519, scheduleExpression: 주기|*|090000|2|235959
+2026-05-26 17:40:55.402 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser -   [2] serverId: localtest02, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0519, scheduleExpression: 배치|*|173000
+2026-05-26 17:41:34.453 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 12332 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\bin\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
+2026-05-26 17:41:34.455 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - The following 1 profile is active: "local"
+2026-05-26 17:41:35.202 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - Started CollectApplication in 1.031 seconds (process running for 1.395)
+2026-05-26 17:41:35.211 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 시작 - filePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
+2026-05-26 17:41:35.213 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 완료 - absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, 유효 스케줄 건수: 2
+2026-05-26 17:41:35.213 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser -   [1] serverId: localtest01, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0519, scheduleExpression: 주기|*|090000|2|235959
+2026-05-26 17:41:35.213 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser -   [2] serverId: localtest02, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0519, scheduleExpression: 배치|*|173000
+2026-05-26 17:42:00.256 [scheduling-1] INFO  com.sks.precheck.collect.scheduler.CollectScheduler - 주기 수집 실행 결정 - serverId: localtest01, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0519, 간격: 2분, 262번째 실행, schedule: 주기|*|090000|2|235959
+2026-05-26 17:42:00.541 [scheduling-1] INFO  com.sks.precheck.collect.service.CollectRetryService - 수집 완료 - 서버: localtest01, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0519, 타입: 주기, 저장건수: 34
+2026-05-26 17:42:35.582 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 시작 - filePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
+2026-05-26 17:42:35.585 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 완료 - absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, 유효 스케줄 건수: 2
+2026-05-26 17:42:35.585 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser -   [1] serverId: localtest01, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0519, scheduleExpression: 주기|*|090000|2|235959
+2026-05-26 17:42:35.586 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser -   [2] serverId: localtest02, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0519, scheduleExpression: 배치|*|173000
+2026-05-26 17:43:35.661 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 시작 - filePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
+2026-05-26 17:43:35.664 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 완료 - absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, 유효 스케줄 건수: 2
+2026-05-26 17:43:35.665 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser -   [1] serverId: localtest01, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0519, scheduleExpression: 주기|*|090000|2|235959
+2026-05-26 17:43:35.666 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser -   [2] serverId: localtest02, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0519, scheduleExpression: 배치|*|173000
+2026-05-26 17:44:00.701 [scheduling-1] INFO  com.sks.precheck.collect.scheduler.CollectScheduler - 주기 수집 실행 결정 - serverId: localtest01, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0519, 간격: 2분, 263번째 실행, schedule: 주기|*|090000|2|235959
+2026-05-26 17:44:00.718 [scheduling-1] INFO  com.sks.precheck.collect.service.CollectRetryService - 수집 완료 - 서버: localtest01, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0519, 타입: 주기, 저장건수: 0
+2026-05-26 17:45:05.936 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 8464 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\bin\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
+2026-05-26 17:45:05.938 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - The following 1 profile is active: "local"
+2026-05-26 17:45:06.709 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - Started CollectApplication in 1.053 seconds (process running for 1.618)
+2026-05-26 17:45:06.719 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 시작 - filePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
+2026-05-26 17:45:06.721 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 완료 - absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, 유효 스케줄 건수: 2
+2026-05-26 17:45:06.722 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser -   [1] serverId: localtest01, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0519, scheduleExpression: 주기|*|090000|2|235959
+2026-05-26 17:45:06.722 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser -   [2] serverId: localtest02, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0519, scheduleExpression: 배치|*|174600
+2026-05-26 17:46:00.793 [scheduling-1] INFO  com.sks.precheck.collect.scheduler.CollectScheduler - 주기 수집 실행 결정 - serverId: localtest01, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0519, 간격: 2분, 264번째 실행, schedule: 주기|*|090000|2|235959
+2026-05-26 17:46:01.168 [scheduling-1] INFO  com.sks.precheck.collect.service.CollectRetryService - 수집 완료 - 서버: localtest01, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0519, 타입: 주기, 저장건수: 34
+2026-05-26 17:46:01.169 [scheduling-1] INFO  com.sks.precheck.collect.scheduler.CollectScheduler - 배치 수집 실행 결정 - serverId: localtest02, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0519, schedule: 배치|*|174600
+2026-05-26 17:46:01.173 [scheduling-1] WARN  com.sks.precheck.collect.parser.LogNormalizeParser - 한 라인에 정규화 로그가 2건 이상으로 무시 - lineNumber: 25
+2026-05-26 17:46:01.173 [scheduling-1] WARN  com.sks.precheck.collect.parser.LogNormalizeParser - LOG_ID 형식 불일치로 무시 - lineNumber: 27, logId: az_pro_nm
+2026-05-26 17:46:01.174 [scheduling-1] WARN  com.sks.precheck.collect.parser.LogNormalizeParser - LOG_ID 형식 불일치로 무시 - lineNumber: 28, logId: ao_mp_pro_nm
+2026-05-26 17:46:01.174 [scheduling-1] WARN  com.sks.precheck.collect.parser.LogNormalizeParser - LOG_ID 형식 불일치로 무시 - lineNumber: 29, logId: ao_jn_pro_nm
+2026-05-26 17:46:01.174 [scheduling-1] WARN  com.sks.precheck.collect.parser.LogNormalizeParser - LOG_ID 형식 불일치로 무시 - lineNumber: 30, logId: ao_tr_pro_nm
+2026-05-26 17:46:01.174 [scheduling-1] WARN  com.sks.precheck.collect.parser.LogNormalizeParser - LOG_ID 형식 불일치로 무시 - lineNumber: 34, logId: batchk체크
+2026-05-26 17:46:01.197 [scheduling-1] INFO  com.sks.precheck.collect.service.CollectRetryService - 수집 완료 - 서버: localtest02, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0519, 타입: 배치, 저장건수: 38
+2026-05-26 17:46:07.205 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 시작 - filePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
+2026-05-26 17:46:07.207 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 완료 - absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, 유효 스케줄 건수: 2
+2026-05-26 17:46:07.208 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser -   [1] serverId: localtest01, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0519, scheduleExpression: 주기|*|090000|2|235959
+2026-05-26 17:46:07.209 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser -   [2] serverId: localtest02, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0519, scheduleExpression: 배치|*|174600
+2026-05-26 17:47:07.280 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 시작 - filePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
+2026-05-26 17:47:07.282 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 완료 - absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, 유효 스케줄 건수: 2
+2026-05-26 17:47:07.283 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser -   [1] serverId: localtest01, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0519, scheduleExpression: 주기|*|090000|2|235959
+2026-05-26 17:47:07.284 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser -   [2] serverId: localtest02, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0519, scheduleExpression: 배치|*|174600
+2026-05-26 17:48:00.352 [scheduling-1] INFO  com.sks.precheck.collect.scheduler.CollectScheduler - 주기 수집 실행 결정 - serverId: localtest01, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0519, 간격: 2분, 265번째 실행, schedule: 주기|*|090000|2|235959
+2026-05-26 17:48:00.370 [scheduling-1] INFO  com.sks.precheck.collect.service.CollectRetryService - 수집 완료 - 서버: localtest01, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0519, 타입: 주기, 저장건수: 0
+2026-05-26 17:48:07.380 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 시작 - filePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
+2026-05-26 17:48:07.382 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 완료 - absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, 유효 스케줄 건수: 2
+2026-05-26 17:48:07.383 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser -   [1] serverId: localtest01, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0519, scheduleExpression: 주기|*|090000|2|235959
+2026-05-26 17:48:07.384 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser -   [2] serverId: localtest02, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0519, scheduleExpression: 배치|*|174600
+2026-05-26 17:49:00.498 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - ==================================================
+2026-05-26 17:49:00.499 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - ==================================================
+2026-05-26 17:49:00.499 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - PreCheck 로그 수집 서버 기동 시작
+2026-05-26 17:49:00.545 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 8464 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\bin\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
+2026-05-26 17:49:00.545 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - The following 1 profile is active: "local"
+2026-05-26 17:49:00.838 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - Started CollectApplication in 0.336 seconds (process running for 235.745)
+2026-05-26 17:49:00.839 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 시작 - filePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
+2026-05-26 17:49:00.840 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 완료 - absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, 유효 스케줄 건수: 2
+2026-05-26 17:49:00.840 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser -   [1] serverId: localtest01, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0519, scheduleExpression: 주기|*|090000|2|235959
+2026-05-26 17:49:00.841 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser -   [2] serverId: localtest02, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0519, scheduleExpression: 배치|*|174600
+2026-05-26 17:49:42.637 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 14188 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\bin\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
+2026-05-26 17:49:42.639 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - The following 1 profile is active: "local"
+2026-05-26 17:49:43.423 [restartedMain] INFO  com.sks.precheck.collect.CollectApplication - Started CollectApplication in 1.067 seconds (process running for 1.423)
+2026-05-26 17:49:43.429 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 시작 - filePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
+2026-05-26 17:49:43.430 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser - 스케줄 설정 파일 파싱 완료 - absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, 유효 스케줄 건수: 2
+2026-05-26 17:49:43.430 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser -   [1] serverId: localtest01, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0519, scheduleExpression: 주기|*|090000|2|235959
+2026-05-26 17:49:43.431 [scheduling-1] INFO  com.sks.precheck.collect.parser.CollectScheduleParser -   [2] serverId: localtest02, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0519, scheduleExpression: 배치|*|175000
+2026-05-26 17:50:00.456 [scheduling-1] INFO  com.sks.precheck.collect.scheduler.CollectScheduler - 주기 수집 실행 결정 - serverId: localtest01, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0519, 간격: 2분, 266번째 실행, schedule: 주기|*|090000|2|235959
+2026-05-26 17:50:00.779 [scheduling-1] INFO  com.sks.precheck.collect.service.CollectRetryService - 수집 완료 - 서버: localtest01, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0519, 타입: 주기, 저장건수: 34
+2026-05-26 17:50:00.779 [scheduling-1] INFO  com.sks.precheck.collect.scheduler.CollectScheduler - 배치 수집 실행 결정 - serverId: localtest02, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0519, schedule: 배치|*|175000
+2026-05-26 17:50:00.783 [scheduling-1] WARN  com.sks.precheck.collect.parser.LogNormalizeParser - 한 라인에 정규화 로그가 2건 이상으로 무시 - lineNumber: 25
+2026-05-26 17:50:00.809 [scheduling-1] INFO  com.sks.precheck.collect.service.CollectRetryService - 수집 완료 - 서버: localtest02, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0519, 타입: 배치, 저장건수: 43

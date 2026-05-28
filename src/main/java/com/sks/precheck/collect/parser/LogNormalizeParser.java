@@ -112,6 +112,10 @@ public class LogNormalizeParser {
      * @return 파싱 성공 시 CollectLog, 정규화 로그가 없거나 무시 대상이면 null
      */
     public CollectLog parseNormalizedLogFromLine(String line, long lineNumber) {
+        return parseNormalizedLogFromLine(line, lineNumber, null);
+    }
+
+    public CollectLog parseNormalizedLogFromLine(String line, long lineNumber, List<String> failDetails) {
 
         // ── Step 1. 빈 라인 및 @@@가 없는 라인 조기 탈출 ──────────────────────
         if (line == null || line.isEmpty()) {
@@ -127,6 +131,7 @@ public class LogNormalizeParser {
         int end = line.indexOf("@@@", start + 3);
         if (end < 0) {
             log.warn("정규화 로그 종료(@@@) 누락으로 무시 - lineNumber: {}", lineNumber);
+            addFailDetail(failDetails, lineNumber, "정규화 로그 종료(@@@) 누락");
             return null;
         }
 
@@ -135,6 +140,7 @@ public class LogNormalizeParser {
         int afterEnd = end + 3;
         if (line.indexOf("@@@", afterEnd) >= 0) {
             log.warn("한 라인에 정규화 로그가 2건 이상으로 무시 - lineNumber: {}", lineNumber);
+            addFailDetail(failDetails, lineNumber, "한 라인에 정규화 로그 2건 이상");
             return null;
         }
 
@@ -144,6 +150,7 @@ public class LogNormalizeParser {
         Matcher matcher = NORMALIZED_LOG_PATTERN.matcher(rawLog);
         if (!matcher.matches()) {
             log.warn("정규화 로그 포맷 불일치로 무시 - lineNumber: {}, rawLog: {}", lineNumber, rawLog);
+            addFailDetail(failDetails, lineNumber, "정규화 로그 포맷 불일치 - " + rawLog);
             return null;
         }
 
@@ -157,6 +164,7 @@ public class LogNormalizeParser {
         // CollectConstants에 정의된 타입(TEXT, INFO, DATE, NUMERIC, EXIST) 외에는 무시한다.
         if (!isSupportedLogType(logType)) {
             log.warn("정규화 로그 타입 불일치로 무시 - lineNumber: {}, logType: {}", lineNumber, logType);
+            addFailDetail(failDetails, lineNumber, "지원하지 않는 로그 타입: " + logType);
             return null;
         }
 
@@ -164,6 +172,7 @@ public class LogNormalizeParser {
         // 대문자·숫자·언더스코어, 최대 30자. 소문자나 특수문자가 포함되면 무시한다.
         if (!LOG_ID_PATTERN.matcher(logId).matches()) {
             log.warn("LOG_ID 형식 불일치로 무시 - lineNumber: {}, logId: {}", lineNumber, logId);
+            addFailDetail(failDetails, lineNumber, "LOG_ID 형식 불일치: " + logId);
             return null;
         }
 
@@ -174,6 +183,7 @@ public class LogNormalizeParser {
             logTimestamp = DateUtil.parseLogTimestamp(timestampText);
         } catch (RuntimeException e) {
             log.warn("timestamp 파싱 실패로 무시 - lineNumber: {}, timestamp: {}", lineNumber, timestampText);
+            addFailDetail(failDetails, lineNumber, "timestamp 파싱 실패: " + timestampText);
             return null;
         }
 
@@ -184,10 +194,12 @@ public class LogNormalizeParser {
         if (CollectConstants.LOG_TYPE_NUMERIC.equals(logType)) {
             if (logValueToken == null || logValueToken.isEmpty()) {
                 log.warn("수치형 로그 값 누락으로 무시 - lineNumber: {}, rawLog: {}", lineNumber, rawLog);
+                addFailDetail(failDetails, lineNumber, "수치형 로그 값 누락");
                 return null;
             }
             logValue = parseLogValue(logValueToken, lineNumber);
             if (logValue == null) {
+                addFailDetail(failDetails, lineNumber, "수치형 로그 값 파싱 실패: " + logValueToken);
                 return null;
             }
         }
@@ -217,6 +229,12 @@ public class LogNormalizeParser {
                 || CollectConstants.LOG_TYPE_DATE.equals(logType)
                 || CollectConstants.LOG_TYPE_NUMERIC.equals(logType)
                 || CollectConstants.LOG_TYPE_EXIST.equals(logType);
+    }
+
+    private void addFailDetail(List<String> failDetails, long lineNumber, String reason) {
+        if (failDetails != null) {
+            failDetails.add("라인 " + lineNumber + ": " + reason);
+        }
     }
 
     /**

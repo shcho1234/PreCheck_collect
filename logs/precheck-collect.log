@@ -1,124 +1,206 @@
-2026-05-28 15:30:53.273 [restartedMain] INFO  CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 8980 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\bin\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
-2026-05-28 15:30:53.281 [restartedMain] INFO  CollectApplication - The following 1 profile is active: "local"
-2026-05-28 15:30:54.428 [restartedMain] INFO  CollectApplication - Started CollectApplication in 1.621 seconds (process running for 2.233)
-2026-05-28 15:30:54.437 [scheduling-1] INFO  CollectScheduleParser - 스케줄 설정 파일 파싱 시작 - filePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
-2026-05-28 15:30:54.439 [scheduling-1] INFO  CollectScheduleParser - 스케줄 설정 파일 파싱 완료 - absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, 유효 스케줄 건수: 2
-2026-05-28 15:30:54.439 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0519, scheduleExpression: 주기|*|090000|2|235959
-2026-05-28 15:30:54.440 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0519, scheduleExpression: 배치|*|175000
-2026-05-28 15:31:54.615 [scheduling-1] INFO  CollectScheduleParser - 스케줄 설정 파일 파싱 시작 - filePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
-2026-05-28 15:31:54.616 [scheduling-1] INFO  CollectScheduleParser - 스케줄 설정 파일 파싱 완료 - absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, 유효 스케줄 건수: 2
-2026-05-28 15:31:54.616 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0519, scheduleExpression: 주기|*|090000|2|235959
-2026-05-28 15:31:54.616 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0519, scheduleExpression: 배치|*|175000
-2026-05-28 15:32:25.664 [restartedMain] INFO  CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 18284 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\bin\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
-2026-05-28 15:32:25.664 [restartedMain] INFO  CollectApplication - The following 1 profile is active: "local"
-2026-05-28 15:32:26.821 [restartedMain] INFO  CollectApplication - Started CollectApplication in 1.567 seconds (process running for 2.092)
-2026-05-28 15:32:26.828 [scheduling-1] INFO  CollectScheduleParser - 스케줄 설정 파일 파싱 시작 - filePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
-2026-05-28 15:32:26.829 [scheduling-1] INFO  CollectScheduleParser - 스케줄 설정 파일 파싱 완료 - absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, 유효 스케줄 건수: 2
-2026-05-28 15:32:26.830 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, scheduleExpression: 주기|*|090000|2|235959
-2026-05-28 15:32:26.830 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, scheduleExpression: 배치|*|153400
-2026-05-28 15:33:27.063 [scheduling-1] INFO  CollectScheduleParser - 스케줄 설정 파일 파싱 시작 - filePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
-2026-05-28 15:33:27.065 [scheduling-1] INFO  CollectScheduleParser - 스케줄 설정 파일 파싱 완료 - absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, 유효 스케줄 건수: 2
-2026-05-28 15:33:27.065 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, scheduleExpression: 주기|*|090000|2|235959
-2026-05-28 15:33:27.065 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, scheduleExpression: 배치|*|153400
-2026-05-28 15:34:00.177 [scheduling-1] INFO  CollectScheduler - 주기 수집 실행 결정 - serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, 간격: 2분, 198번째 실행, schedule: 주기|*|090000|2|235959
-2026-05-28 15:34:00.491 [scheduling-1] INFO  CollectRetryService - 수집 완료 - 서버: dlprem01-테스트개발, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, 타입: 주기, 저장건수: 56, 실패건수: 103
-2026-05-28 15:34:00.492 [scheduling-1] INFO  CollectScheduler - 배치 수집 실행 결정 - serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, schedule: 배치|*|153400
-2026-05-28 15:34:00.531 [scheduling-1] INFO  CollectRetryService - 수집 완료 - 서버: pamoap01-자동주문, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, 타입: 배치, 저장건수: 81, 실패건수: 168
-2026-05-28 15:34:27.577 [scheduling-1] INFO  CollectScheduleParser - 스케줄 설정 파일 파싱 시작 - filePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
-2026-05-28 15:34:27.578 [scheduling-1] INFO  CollectScheduleParser - 스케줄 설정 파일 파싱 완료 - absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, 유효 스케줄 건수: 2
-2026-05-28 15:34:27.578 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, scheduleExpression: 주기|*|090000|2|235959
-2026-05-28 15:34:27.578 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, scheduleExpression: 배치|*|153400
-2026-05-28 15:35:27.784 [scheduling-1] INFO  CollectScheduleParser - 스케줄 설정 파일 파싱 시작 - filePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
-2026-05-28 15:35:27.785 [scheduling-1] INFO  CollectScheduleParser - 스케줄 설정 파일 파싱 완료 - absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, 유효 스케줄 건수: 2
-2026-05-28 15:35:27.785 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, scheduleExpression: 주기|*|090000|2|235959
-2026-05-28 15:35:27.785 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, scheduleExpression: 배치|*|153400
-2026-05-28 15:36:00.847 [scheduling-1] INFO  CollectScheduler - 주기 수집 실행 결정 - serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, 간격: 2분, 199번째 실행, schedule: 주기|*|090000|2|235959
-2026-05-28 15:36:00.858 [scheduling-1] INFO  CollectRetryService - 수집 완료 - 서버: dlprem01-테스트개발, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, 타입: 주기, 저장건수: 0, 실패건수: 0
-2026-05-28 15:44:03.301 [restartedMain] INFO  CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 17816 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\bin\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
-2026-05-28 15:44:03.316 [restartedMain] INFO  CollectApplication - The following 1 profile is active: "local"
-2026-05-28 15:44:04.050 [restartedMain] INFO  CollectApplication - Started CollectApplication in 1.03 seconds (process running for 1.487)
-2026-05-28 15:44:04.050 [scheduling-1] INFO  CollectScheduleParser - 스케줄 설정 파일 파싱 시작 - filePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
-2026-05-28 15:44:04.063 [scheduling-1] INFO  CollectScheduleParser - 스케줄 설정 파일 파싱 완료 - absolutePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf, 유효 스케줄 건수: 2
-2026-05-28 15:44:04.063 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, scheduleExpression: 주기|*|090000|2|235959
-2026-05-28 15:44:04.064 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, scheduleExpression: 배치|*|153400
-2026-05-28 15:44:04.064 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:04.065 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:04.065 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:04.065 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:05.067 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:05.068 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:05.069 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:05.069 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:06.071 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:06.072 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:06.073 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:06.074 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:07.083 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:07.084 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:07.085 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:07.085 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:08.087 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:08.088 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:08.089 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:08.089 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:09.090 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:09.090 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:09.090 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:09.090 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:10.092 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:10.093 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:10.093 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:10.094 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:11.096 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:11.096 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:11.096 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:11.096 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:12.097 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:12.098 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:12.099 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:12.100 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:13.102 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:13.103 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:13.104 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:13.105 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:14.108 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:14.109 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:14.109 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:14.110 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:15.111 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:15.111 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:15.111 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:15.111 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:16.113 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:16.113 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:16.113 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:16.113 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:17.116 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:17.116 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:17.116 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:17.116 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:18.116 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:18.117 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:18.118 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:18.118 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:19.121 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:19.122 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:19.123 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:19.123 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:20.125 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:20.126 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:20.126 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:20.127 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:21.128 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:21.129 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:44:21.129 [scheduling-1] INFO  CollectScheduler - === LOOP START ===
-2026-05-28 15:44:21.130 [scheduling-1] INFO  CollectScheduler - === LOOP END ===
-2026-05-28 15:47:14.117 [restartedMain] INFO  CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 8608 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\bin\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
-2026-05-28 15:47:14.117 [restartedMain] INFO  CollectApplication - The following 1 profile is active: "local"
-2026-05-28 15:47:14.867 [restartedMain] INFO  CollectApplication - Started CollectApplication in 1.097 seconds (process running for 1.444)
-2026-05-28 15:47:14.878 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, scheduleExpression: 주기|*|090000|2|235959
-2026-05-28 15:47:14.878 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, scheduleExpression: 배치|*|153400
-2026-05-28 15:48:00.034 [scheduling-1] INFO  CollectScheduler - 주기 수집 실행 - serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, 간격: 2분, 205번째 실행, schedule: 주기|*|090000|2|235959
-2026-05-28 15:48:00.287 [scheduling-1] INFO  CollectRetryService - 수집 완료 - 서버: dlprem01-테스트개발, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, 타입: 주기, 저장건수: 0, 실패건수: 0
-2026-05-28 15:48:15.306 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, scheduleExpression: 주기|*|090000|2|235959
-2026-05-28 15:48:15.308 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, scheduleExpression: 배치|*|153400
+2026-05-28 16:07:18.987 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-05-28 16:07:18.988 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, scheduleExpression: 주기|*|090000|2|235959
+2026-05-28 16:07:18.988 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-05-28 16:07:18.988 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, scheduleExpression: 배치|*|160800
+2026-05-28 16:08:00.050 [scheduling-1] INFO  CollectScheduler - 주기 수집 실행 - serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, 간격: 2분, 215번째 실행, schedule: 주기|*|090000|2|235959
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService - 수집 완료 - 서버: dlprem01-테스트개발, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, 타입: 주기, 저장건수: 56, 실패건수: 103
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 1: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 2: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 3: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 4: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 5: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 6: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 8: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 9: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 11: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 13: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 15: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 19: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 20: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 22: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 24: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 26: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 29: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 36: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 49: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 64: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 65: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 67: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 69: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 72: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 74: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 76: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 78: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 80: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 82: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 84: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 86: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 90: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 93: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 96: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 99: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.438 [scheduling-1] INFO  CollectRetryService -   └ 라인 102: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.453 [scheduling-1] INFO  CollectRetryService -   └ 라인 105: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.453 [scheduling-1] INFO  CollectRetryService -   └ 라인 107: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.453 [scheduling-1] INFO  CollectRetryService -   └ 라인 108: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.453 [scheduling-1] INFO  CollectRetryService -   └ 라인 109: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.453 [scheduling-1] INFO  CollectRetryService -   └ 라인 110: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.453 [scheduling-1] INFO  CollectRetryService -   └ 라인 112: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.453 [scheduling-1] INFO  CollectRetryService -   └ 라인 114: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.453 [scheduling-1] INFO  CollectRetryService -   └ 라인 116: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.454 [scheduling-1] INFO  CollectRetryService -   └ 라인 118: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.454 [scheduling-1] INFO  CollectRetryService -   └ 라인 120: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.454 [scheduling-1] INFO  CollectRetryService -   └ 라인 122: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.454 [scheduling-1] INFO  CollectRetryService -   └ 라인 124: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.454 [scheduling-1] INFO  CollectRetryService -   └ 라인 126: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.454 [scheduling-1] INFO  CollectRetryService -   └ 라인 128: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.454 [scheduling-1] INFO  CollectRetryService -   └ 라인 130: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.455 [scheduling-1] INFO  CollectRetryService -   └ 라인 132: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.455 [scheduling-1] INFO  CollectRetryService -   └ 라인 135: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.455 [scheduling-1] INFO  CollectRetryService -   └ 라인 137: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.455 [scheduling-1] INFO  CollectRetryService -   └ 라인 139: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.455 [scheduling-1] INFO  CollectRetryService -   └ 라인 142: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.455 [scheduling-1] INFO  CollectRetryService -   └ 라인 144: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.456 [scheduling-1] INFO  CollectRetryService -   └ 라인 146: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.456 [scheduling-1] INFO  CollectRetryService -   └ 라인 149: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.456 [scheduling-1] INFO  CollectRetryService -   └ 라인 151: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.456 [scheduling-1] INFO  CollectRetryService -   └ 라인 152: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.456 [scheduling-1] INFO  CollectRetryService -   └ 라인 153: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.456 [scheduling-1] INFO  CollectRetryService -   └ 라인 155: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.456 [scheduling-1] INFO  CollectRetryService -   └ 라인 159: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.457 [scheduling-1] INFO  CollectScheduler - 배치 수집 실행 - serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, schedule: 배치|*|160800
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService - 수집 완료 - 서버: pamoap01-자동주문, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, 타입: 배치, 저장건수: 81, 실패건수: 168
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 1: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 2: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 3: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 4: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 5: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 6: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 7: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 8: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 9: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 10: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 11: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 12: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 13: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 14: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 15: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 16: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 17: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 18: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 19: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 20: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 21: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 22: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 23: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 24: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 25: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 26: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 27: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 28: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 29: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 30: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 31: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 33: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 34: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 36: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 38: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 40: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 42: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 44: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 46: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.506 [scheduling-1] INFO  CollectRetryService -   └ 라인 48: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.521 [scheduling-1] INFO  CollectRetryService -   └ 라인 50: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.521 [scheduling-1] INFO  CollectRetryService -   └ 라인 52: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.521 [scheduling-1] INFO  CollectRetryService -   └ 라인 54: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.521 [scheduling-1] INFO  CollectRetryService -   └ 라인 59: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.521 [scheduling-1] INFO  CollectRetryService -   └ 라인 61: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.521 [scheduling-1] INFO  CollectRetryService -   └ 라인 64: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.521 [scheduling-1] INFO  CollectRetryService -   └ 라인 66: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.522 [scheduling-1] INFO  CollectRetryService -   └ 라인 68: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.522 [scheduling-1] INFO  CollectRetryService -   └ 라인 70: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.522 [scheduling-1] INFO  CollectRetryService -   └ 라인 72: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.522 [scheduling-1] INFO  CollectRetryService -   └ 라인 83: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.523 [scheduling-1] INFO  CollectRetryService -   └ 라인 85: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.523 [scheduling-1] INFO  CollectRetryService -   └ 라인 87: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.523 [scheduling-1] INFO  CollectRetryService -   └ 라인 89: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.523 [scheduling-1] INFO  CollectRetryService -   └ 라인 91: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.523 [scheduling-1] INFO  CollectRetryService -   └ 라인 93: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.523 [scheduling-1] INFO  CollectRetryService -   └ 라인 104: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.523 [scheduling-1] INFO  CollectRetryService -   └ 라인 106: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.524 [scheduling-1] INFO  CollectRetryService -   └ 라인 108: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.524 [scheduling-1] INFO  CollectRetryService -   └ 라인 110: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.524 [scheduling-1] INFO  CollectRetryService -   └ 라인 113: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.524 [scheduling-1] INFO  CollectRetryService -   └ 라인 115: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.524 [scheduling-1] INFO  CollectRetryService -   └ 라인 122: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.524 [scheduling-1] INFO  CollectRetryService -   └ 라인 124: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.524 [scheduling-1] INFO  CollectRetryService -   └ 라인 125: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.524 [scheduling-1] INFO  CollectRetryService -   └ 라인 127: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.525 [scheduling-1] INFO  CollectRetryService -   └ 라인 130: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.525 [scheduling-1] INFO  CollectRetryService -   └ 라인 133: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.525 [scheduling-1] INFO  CollectRetryService -   └ 라인 136: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.525 [scheduling-1] INFO  CollectRetryService -   └ 라인 139: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.525 [scheduling-1] INFO  CollectRetryService -   └ 라인 142: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.525 [scheduling-1] INFO  CollectRetryService -   └ 라인 145: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 149: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 151: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 152: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 153: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 155: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 157: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 159: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 161: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 163: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 166: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 169: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 171: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 173: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 175: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 177: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 179: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 181: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 183: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 185: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 187: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 189: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 191: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 193: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 195: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 197: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 199: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 201: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 204: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 207: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 210: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 212: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 214: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 216: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 218: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 220: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 222: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 224: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 226: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 228: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 230: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 232: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.526 [scheduling-1] INFO  CollectRetryService -   └ 라인 234: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.532 [scheduling-1] INFO  CollectRetryService -   └ 라인 236: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.532 [scheduling-1] INFO  CollectRetryService -   └ 라인 238: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.532 [scheduling-1] INFO  CollectRetryService -   └ 라인 240: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.532 [scheduling-1] INFO  CollectRetryService -   └ 라인 241: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.532 [scheduling-1] INFO  CollectRetryService -   └ 라인 242: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.532 [scheduling-1] INFO  CollectRetryService -   └ 라인 244: 정규화 로그(@@@) 없음
+2026-05-28 16:08:00.532 [scheduling-1] INFO  CollectRetryService -   └ 라인 249: 정규화 로그(@@@) 없음
+2026-05-28 16:08:19.576 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-05-28 16:08:19.576 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, scheduleExpression: 주기|*|090000|2|235959
+2026-05-28 16:08:19.576 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-05-28 16:08:19.576 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, scheduleExpression: 배치|*|160800
+2026-05-28 16:13:38.202 [restartedMain] INFO  CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 10912 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\bin\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
+2026-05-28 16:13:38.202 [restartedMain] INFO  CollectApplication - The following 1 profile is active: "local"
+2026-05-28 16:13:39.318 [restartedMain] INFO  CollectApplication - Started CollectApplication in 1.554 seconds (process running for 2.124)
+2026-05-28 16:13:39.335 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-05-28 16:13:39.342 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, scheduleExpression: 주기|*|090000|2|235959
+2026-05-28 16:13:39.343 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-05-28 16:13:39.343 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, scheduleExpression: 배치|*|161500
+2026-05-28 16:14:00.459 [scheduling-1] INFO  CollectScheduler - 주기 수집 실행 - serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, 간격: 2분, 218번째 실행, schedule: 주기|*|090000|2|235959
+2026-05-28 16:14:00.858 [scheduling-1] INFO  CollectRetryService - 수집 완료 - 서버: dlprem01-테스트개발, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, 타입: 주기, 총라인수: 159, 저장건수: 56, 실패건수: 0

@@ -152,6 +152,7 @@ public class CollectRetryService {
 
         // ── Step 6. 원격 파일 라인 읽기 및 정규화 로그 파싱 ──────────────────────
         List<CollectLog> parsedLogs = new ArrayList<>();
+        List<String> parseFailures = new ArrayList<>();
 
         // LineReadState : 람다 내부에서 읽기 상태를 추적하기 위한 가변 컨테이너.
         // Java 람다는 effectively final 변수만 캡처할 수 있어서
@@ -179,12 +180,12 @@ public class CollectRetryService {
                     }
 
                     // 라인에서 정규화 로그(@@@...@@@)를 파싱한다.
-                    // 정규화 로그가 없거나 포맷이 맞지 않으면 null을 반환하므로 null 체크 후 추가한다.
-                    CollectLog parsed = logNormalizeParser.parseNormalizedLogFromLine(lineText, lineNumber);
+                    // 라인을 파싱 시도한다. @@@가 없는 일반 라인은 null 반환(실패 아님).
+                    // @@@가 있으나 포맷 불일치 등 실제 오류는 parseFailures에 이유가 추가된다.
+                    lineReadState.totalLineCount++;
+                    CollectLog parsed = logNormalizeParser.parseNormalizedLogFromLine(lineText, lineNumber, parseFailures);
                     if (parsed != null) {
                         parsedLogs.add(parsed);
-                    } else {
-                        lineReadState.invalidLogCount++;
                     }
                 }
         );
@@ -241,8 +242,12 @@ public class CollectRetryService {
         update.setUpdatedAt(LocalDateTime.now());
         collectHistoryMapper.updateCollectStatus(update);
 
-        log.info("수집 완료 - 서버: {}, 파일: {}, 타입: {}, 저장건수: {}, 실패건수: {}",
-                serverId, sourceFilePath, scheduleType, parsedLogs.size(), lineReadState.invalidLogCount);
+        log.info("수집 완료 - 서버: {}, 파일: {}, 타입: {}, 수집총라인수: {}, 정규화저장건수: {}, 정규화실패건수: {}",
+                serverId, sourceFilePath, scheduleType,
+                lineReadState.totalLineCount, parsedLogs.size(), parseFailures.size());
+        if (!parseFailures.isEmpty()) {
+            parseFailures.forEach(detail -> log.info("  └ {}", detail));
+        }
         return parsedLogs.size();
     }
 
@@ -349,17 +354,17 @@ public class CollectRetryService {
      * 필드:
      *   lastReadLineNumber    - 람다가 마지막으로 처리한 라인번호. 다음 주기 수집의 시작점이 된다.
      *   totalReadBytes        - 누적 읽기 바이트 수. 주기 수집 증분 크기 한도 판단에 사용한다.
+     *   totalLineCount        - 파싱을 시도한 총 라인 수.
      *   exceededPartSizeLimit - 증분 크기 한도를 초과했는지 여부.
      */
     private static class LineReadState {
         private long lastReadLineNumber;
         private long totalReadBytes;
-        private long invalidLogCount;
+        private long totalLineCount;
         private boolean exceededPartSizeLimit;
 
         private LineReadState(long lastReadLineNumber) {
             this.lastReadLineNumber = lastReadLineNumber;
-            this.invalidLogCount = 0;
         }
     }
 }

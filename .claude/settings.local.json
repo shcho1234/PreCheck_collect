@@ -5,7 +5,8 @@
       "PowerShell(Copy-Item \"c:\\\\Users\\\\20200161\\\\Desktop\\\\PreCheck_work\\\\Precheck_project\\\\Precheck_SKSCh1\\\\precheck_collect\\\\collect\\\\src\\\\main\\\\resources\\\\application-local.yml\" -Destination \"c:\\\\Users\\\\20200161\\\\Desktop\\\\PreCheck_work\\\\Precheck_project\\\\Precheck_SKSCh1\\\\precheck_collect\\\\collect\\\\bin\\\\main\\\\application-local.yml\" -Force)",
       "Bash(powershell -Command \"Format-Hex logs/precheck-collect.log | Select-Object -First 30\")",
       "Bash(Get-ChildItem -Recurse -Filter \"*.java\")",
-      "Bash(Select-Object Name, FullName)"
+      "Bash(Select-Object Name, FullName)",
+      "Bash(mvn compile *)"
     ]
   }
 }

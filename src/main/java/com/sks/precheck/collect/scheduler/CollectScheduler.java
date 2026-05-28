@@ -152,7 +152,7 @@ public class CollectScheduler {
         }
 
         lastBatchRunDateByKey.put(key, today);
-        log.info("배치 수집 실행 결정 - serverId: {}, serverIp: {}, sourceFilePath: {}, schedule: {}",
+        log.info("배치 수집 실행 - serverId: {}, serverIp: {}, sourceFilePath: {}, schedule: {}",
                 schedule.getServerId(), schedule.getServerIp(), schedule.getSourceFilePath(),
                 schedule.getScheduleExpression());
         return true;
@@ -186,7 +186,7 @@ public class CollectScheduler {
         }
 
         lastPeriodicRunIndexByKey.put(key, runIndex);
-        log.info("주기 수집 실행 결정 - serverId: {}, serverIp: {}, sourceFilePath: {}, 간격: {}분, {}번째 실행, schedule: {}",
+        log.info("주기 수집 실행 - serverId: {}, serverIp: {}, sourceFilePath: {}, 간격: {}분, {}번째 실행, schedule: {}",
                 schedule.getServerId(), schedule.getServerIp(), schedule.getSourceFilePath(),
                 rule.intervalMinutes, runIndex + 1, schedule.getScheduleExpression());
         return true;

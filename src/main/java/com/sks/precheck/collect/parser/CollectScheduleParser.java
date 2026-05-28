@@ -32,7 +32,7 @@ public class CollectScheduleParser {
      */
     public List<CollectScheduleVo> parseScheduleFile(String filePath) {
         Path path = Path.of(filePath);
-        log.info("스케줄 설정 파일 파싱 시작 - filePath: {}, absolutePath: {}", filePath, path.toAbsolutePath());
+        log.debug("스케줄 설정 파일 파싱 시작 - filePath: {}, absolutePath: {}", filePath, path.toAbsolutePath());
 
         List<CollectScheduleVo> result = new ArrayList<>();
 
@@ -44,9 +44,10 @@ public class CollectScheduleParser {
                     result.add(schedule);
                 }
             }
-            log.info("스케줄 설정 파일 파싱 완료 - absolutePath: {}, 유효 스케줄 건수: {}", path.toAbsolutePath(), result.size());
+            log.debug("스케줄 설정 파일 파싱 완료 - absolutePath: {}, 유효 스케줄 건수: {}", path.toAbsolutePath(), result.size());
             for (int i = 0; i < result.size(); i++) {
                 CollectScheduleVo s = result.get(i);
+                log.info("=============================");
                 log.info("  [{}] serverId: {}, serverIp: {}, sourceFilePath: {}, scheduleExpression: {}",
                         i + 1, s.getServerId(), s.getServerIp(), s.getSourceFilePath(), s.getScheduleExpression());
             }

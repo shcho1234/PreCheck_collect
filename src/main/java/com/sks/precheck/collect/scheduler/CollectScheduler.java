@@ -56,6 +56,7 @@ public class CollectScheduler {
             @Value("${precheck.sftp.password:}") String sftpPassword,
             @Value("${precheck.collect.scheduler.reload-interval-ms:60000}") long reloadIntervalMillis
     ) {
+        
         this.collectService = collectService;
         this.collectScheduleParser = new CollectScheduleParser();
         this.scheduleFilePath = (scheduleFilePath == null || scheduleFilePath.isBlank())

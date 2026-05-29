@@ -16,8 +16,6 @@ public class CollectApplication {
     private static final Logger log = LogManager.getLogger(CollectApplication.class);
 
     public static void main(String[] args) {
-        log.info("==================================================");
-        log.info("==================================================");
         log.info("PreCheck 로그 수집 서버 기동 시작");
         SpringApplication.run(CollectApplication.class, args);
     }

@@ -56,6 +56,14 @@ public class CollectScheduler {
             @Value("${precheck.sftp.password:}") String sftpPassword,
             @Value("${precheck.collect.scheduler.reload-interval-ms:60000}") long reloadIntervalMillis
     ) {
+        // Log loaded configuration values (exclude password for security)
+        log.info("<<< CollectScheduler initialized with configuration: >>>");
+        log.info("  Schedule file path: {}", scheduleFilePath);
+        log.info("  Collect mode: {}", collectMode);
+        log.info("  SFTP port: {}", sftpPort);
+        log.info("  SFTP username: {}", sftpUsername);
+        log.info("  Schedule reload interval (ms): {}", reloadIntervalMillis);
+        log.info("<<< Configuration initialized >>>");
         
         this.collectService = collectService;
         this.collectScheduleParser = new CollectScheduleParser();

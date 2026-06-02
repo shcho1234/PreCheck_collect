@@ -1,101 +1,68 @@
-2026-05-29 08:50:26.981 [restartedMain] INFO  CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 11776 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\bin\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
-2026-05-29 08:50:26.989 [restartedMain] INFO  CollectApplication - The following 1 profile is active: "local"
-2026-05-29 08:50:28.207 [restartedMain] INFO  CollectApplication - Started CollectApplication in 1.695 seconds (process running for 2.31)
-2026-05-29 08:50:28.215 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 08:50:28.219 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, scheduleExpression: 주기|*|090000|2|235959
-2026-05-29 08:50:28.219 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 08:50:28.219 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, scheduleExpression: 배치|*|161500
-2026-05-29 08:51:28.414 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 08:51:28.416 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, scheduleExpression: 주기|*|090000|2|235959
-2026-05-29 08:51:28.417 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 08:51:28.418 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, scheduleExpression: 배치|*|161500
-2026-05-29 08:53:00.322 [restartedMain] INFO  CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 8348 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\bin\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
-2026-05-29 08:53:00.326 [restartedMain] INFO  CollectApplication - The following 1 profile is active: "local"
-2026-05-29 08:53:01.519 [restartedMain] INFO  CollectApplication - Started CollectApplication in 1.701 seconds (process running for 2.276)
-2026-05-29 08:53:01.527 [scheduling-1] WARN  CollectScheduleParser - 수집주기기술 포맷 오류로 무시 - lineNumber: 2, schedule: 배치|*|1090100
-2026-05-29 08:53:01.528 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 08:53:01.528 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, scheduleExpression: 주기|*|090000|2|235959
-2026-05-29 08:53:33.967 [restartedMain] INFO  CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 8576 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\bin\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
-2026-05-29 08:53:33.985 [restartedMain] INFO  CollectApplication - The following 1 profile is active: "local"
-2026-05-29 08:53:35.096 [restartedMain] INFO  CollectApplication - Started CollectApplication in 1.542 seconds (process running for 2.093)
-2026-05-29 08:53:35.105 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 08:53:35.107 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, scheduleExpression: 주기|*|090000|2|235959
-2026-05-29 08:53:35.107 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 08:53:35.107 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, scheduleExpression: 배치|*|090100
-2026-05-29 08:54:35.280 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 08:54:35.282 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, scheduleExpression: 주기|*|090000|2|235959
-2026-05-29 08:54:35.284 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 08:54:35.285 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, scheduleExpression: 배치|*|090100
-2026-05-29 08:55:35.423 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 08:55:35.424 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, scheduleExpression: 주기|*|090000|2|235959
-2026-05-29 08:55:35.425 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 08:55:35.426 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, scheduleExpression: 배치|*|090100
-2026-05-29 08:56:35.587 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 08:56:35.588 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, scheduleExpression: 주기|*|090000|2|235959
-2026-05-29 08:56:35.589 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 08:56:35.590 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, scheduleExpression: 배치|*|090100
-2026-05-29 08:57:35.752 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 08:57:35.753 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, scheduleExpression: 주기|*|090000|2|235959
-2026-05-29 08:57:35.753 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 08:57:35.753 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, scheduleExpression: 배치|*|090100
-2026-05-29 08:58:35.952 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 08:58:35.953 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, scheduleExpression: 주기|*|090000|2|235959
-2026-05-29 08:58:35.953 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 08:58:35.953 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, scheduleExpression: 배치|*|090100
-2026-05-29 08:58:48.983 [restartedMain] INFO  CollectApplication - PreCheck 로그 수집 서버 기동 시작
-2026-05-29 08:58:49.049 [restartedMain] INFO  CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 8576 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\bin\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
-2026-05-29 08:58:49.050 [restartedMain] INFO  CollectApplication - The following 1 profile is active: "local"
-2026-05-29 08:58:49.425 [restartedMain] INFO  CollectApplication - Started CollectApplication in 0.435 seconds (process running for 316.422)
-2026-05-29 08:58:49.426 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 08:58:49.426 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, scheduleExpression: 주기|*|090000|2|235959
-2026-05-29 08:58:49.426 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 08:58:49.426 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, scheduleExpression: 배치|*|090100
-2026-05-29 08:59:49.598 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 08:59:49.599 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, scheduleExpression: 주기|*|090000|2|235959
-2026-05-29 08:59:49.599 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 08:59:49.599 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, scheduleExpression: 배치|*|090100
-2026-05-29 09:00:00.618 [scheduling-1] INFO  CollectScheduler - 주기 수집 실행 - serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, 간격: 2분, 1번째 실행, schedule: 주기|*|090000|2|235959
-2026-05-29 09:00:00.920 [scheduling-1] INFO  CollectRetryService - 수집 완료 - 서버: dlprem01-테스트개발, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, 타입: 주기, 수집총라인수: 159, 정규화저장건수: 56, 정규화실패건수: 0
-2026-05-29 09:00:50.062 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 09:00:50.063 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, scheduleExpression: 주기|*|090000|2|235959
-2026-05-29 09:00:50.064 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 09:00:50.064 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, scheduleExpression: 배치|*|090100
-2026-05-29 09:01:00.117 [scheduling-1] INFO  CollectScheduler - 배치 수집 실행 - serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, schedule: 배치|*|090100
-2026-05-29 09:01:00.179 [scheduling-1] INFO  CollectRetryService - 수집 완료 - 서버: pamoap01-자동주문, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, 타입: 배치, 수집총라인수: 249, 정규화저장건수: 81, 정규화실패건수: 0
-2026-05-29 09:43:18.280 [restartedMain] INFO  CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 18940 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\bin\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
-2026-05-29 09:43:18.280 [restartedMain] INFO  CollectApplication - The following 1 profile is active: "local"
-2026-05-29 09:43:19.659 [restartedMain] INFO  CollectApplication - Started CollectApplication in 1.909 seconds (process running for 2.418)
-2026-05-29 09:43:19.659 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 09:43:19.677 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, scheduleExpression: 주기|*|090000|2|235959
-2026-05-29 09:43:19.678 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 09:43:19.678 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, scheduleExpression: 배치|*|090100
-2026-05-29 09:43:48.546 [restartedMain] INFO  CollectApplication - PreCheck 로그 수집 서버 기동 시작
-2026-05-29 09:43:48.611 [restartedMain] INFO  CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 18940 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\bin\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
-2026-05-29 09:43:48.611 [restartedMain] INFO  CollectApplication - The following 1 profile is active: "local"
-2026-05-29 09:43:48.938 [restartedMain] INFO  CollectScheduler - CollectScheduler initialized with configuration:
-2026-05-29 09:43:48.938 [restartedMain] INFO  CollectScheduler -   Schedule file path: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
-2026-05-29 09:43:48.939 [restartedMain] INFO  CollectScheduler -   Collect mode: local
-2026-05-29 09:43:48.939 [restartedMain] INFO  CollectScheduler -   SFTP port: 22
-2026-05-29 09:43:48.939 [restartedMain] INFO  CollectScheduler -   SFTP username: local_user
-2026-05-29 09:43:48.939 [restartedMain] INFO  CollectScheduler -   Schedule reload interval (ms): 60000
-2026-05-29 09:43:48.975 [restartedMain] INFO  CollectApplication - Started CollectApplication in 0.409 seconds (process running for 31.729)
-2026-05-29 09:43:48.976 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 09:43:48.977 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, scheduleExpression: 주기|*|090000|2|235959
-2026-05-29 09:43:48.977 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 09:43:48.977 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, scheduleExpression: 배치|*|090100
-2026-05-29 09:44:00.017 [scheduling-1] INFO  CollectScheduler - 주기 수집 실행 - serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, 간격: 2분, 23번째 실행, schedule: 주기|*|090000|2|235959
-2026-05-29 09:44:00.298 [scheduling-1] INFO  CollectRetryService - 수집 완료 - 서버: dlprem01-테스트개발, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, 타입: 주기, 수집총라인수: 0, 정규화저장건수: 0, 정규화실패건수: 0
-2026-05-29 09:45:25.122 [restartedMain] INFO  CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 11704 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\bin\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
-2026-05-29 09:45:25.124 [restartedMain] INFO  CollectApplication - The following 1 profile is active: "local"
-2026-05-29 09:45:25.778 [restartedMain] INFO  CollectScheduler - <<< CollectScheduler initialized with configuration: >>>
-2026-05-29 09:45:25.778 [restartedMain] INFO  CollectScheduler -   Schedule file path: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
-2026-05-29 09:45:25.778 [restartedMain] INFO  CollectScheduler -   Collect mode: local
-2026-05-29 09:45:25.778 [restartedMain] INFO  CollectScheduler -   SFTP port: 22
-2026-05-29 09:45:25.778 [restartedMain] INFO  CollectScheduler -   SFTP username: local_user
-2026-05-29 09:45:25.778 [restartedMain] INFO  CollectScheduler -   Schedule reload interval (ms): 60000
-2026-05-29 09:45:25.778 [restartedMain] INFO  CollectScheduler - <<< Configuration initialized >>>
-2026-05-29 09:45:25.883 [restartedMain] INFO  CollectApplication - Started CollectApplication in 1.046 seconds (process running for 1.62)
-2026-05-29 09:45:25.894 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 09:45:25.895 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_120_log.0528, scheduleExpression: 주기|*|090000|2|235959
-2026-05-29 09:45:25.895 [scheduling-1] INFO  CollectScheduleParser - =============================
-2026-05-29 09:45:25.896 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_141_log.0528, scheduleExpression: 배치|*|090100
+2026-06-02 14:56:00.571 [restartedMain] INFO  CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 22520 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\bin\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
+2026-06-02 14:56:00.581 [restartedMain] INFO  CollectApplication - The following 1 profile is active: "local"
+2026-06-02 14:56:01.661 [restartedMain] INFO  CollectScheduler - <<< CollectScheduler initialized with configuration: >>>
+2026-06-02 14:56:01.661 [restartedMain] INFO  CollectScheduler -   Schedule file path: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
+2026-06-02 14:56:01.661 [restartedMain] INFO  CollectScheduler -   Collect mode: local
+2026-06-02 14:56:01.661 [restartedMain] INFO  CollectScheduler -   SFTP port: 22
+2026-06-02 14:56:01.661 [restartedMain] INFO  CollectScheduler -   SFTP username: local_user
+2026-06-02 14:56:01.661 [restartedMain] INFO  CollectScheduler -   Schedule reload interval (ms): 60000
+2026-06-02 14:56:01.661 [restartedMain] INFO  CollectScheduler - <<< Configuration initialized >>>
+2026-06-02 14:56:01.794 [restartedMain] INFO  CollectApplication - Started CollectApplication in 1.712 seconds (process running for 2.331)
+2026-06-02 14:56:01.811 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-06-02 14:56:01.811 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_sise.log, scheduleExpression: 주기|*|090000|2|235959
+2026-06-02 14:56:01.811 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-06-02 14:56:01.811 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_aor.log, scheduleExpression: 주기|*|090000|2|235959
+2026-06-02 14:56:01.818 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-06-02 14:56:01.818 [scheduling-1] INFO  CollectScheduleParser -   [3] serverId: pqgetap1-시세포착1, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_cap1.log, scheduleExpression: 주기|*|090000|2|235959
+2026-06-02 14:56:01.818 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-06-02 14:56:01.818 [scheduling-1] INFO  CollectScheduleParser -   [4] serverId: pqgetap1-시세포착2, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_cap2.log, scheduleExpression: 주기|*|090000|2|235959
+2026-06-02 14:56:01.819 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-06-02 14:56:01.819 [scheduling-1] INFO  CollectScheduleParser -   [5] serverId: pjpsap01-주파수클럽, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_jpc.log, scheduleExpression: 주기|*|090000|2|235959
+2026-06-02 14:56:01.819 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-06-02 14:56:01.819 [scheduling-1] INFO  CollectScheduleParser -   [6] serverId: pmaster2-마스터, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_master.log, scheduleExpression: 주기|*|090000|2|235959
+2026-06-02 14:56:01.824 [scheduling-1] INFO  CollectScheduler - 주기 수집 실행 - serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_sise.log, 간격: 2분, 179번째 실행, schedule: 주기|*|090000|2|235959
+2026-06-02 14:56:02.248 [scheduling-1] INFO  CollectRetryService - 수집 완료 - 서버: dlprem01-테스트개발, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_sise.log, 타입: 주기, 수집총라인수: 169, 정규화저장건수: 63, 정규화실패건수: 0
+2026-06-02 14:56:02.249 [scheduling-1] INFO  CollectScheduler - 주기 수집 실행 - serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_aor.log, 간격: 2분, 179번째 실행, schedule: 주기|*|090000|2|235959
+2026-06-02 14:56:02.302 [scheduling-1] INFO  CollectRetryService - 수집 완료 - 서버: pamoap01-자동주문, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_aor.log, 타입: 주기, 수집총라인수: 254, 정규화저장건수: 83, 정규화실패건수: 0
+2026-06-02 14:56:02.303 [scheduling-1] INFO  CollectScheduler - 주기 수집 실행 - serverId: pqgetap1-시세포착1, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_cap1.log, 간격: 2분, 179번째 실행, schedule: 주기|*|090000|2|235959
+2026-06-02 14:56:02.311 [scheduling-1] INFO  CollectRetryService - 수집 완료 - 서버: pqgetap1-시세포착1, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_cap1.log, 타입: 주기, 수집총라인수: 42, 정규화저장건수: 5, 정규화실패건수: 0
+2026-06-02 14:56:02.312 [scheduling-1] INFO  CollectScheduler - 주기 수집 실행 - serverId: pqgetap1-시세포착2, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_cap2.log, 간격: 2분, 179번째 실행, schedule: 주기|*|090000|2|235959
+2026-06-02 14:56:02.319 [scheduling-1] INFO  CollectRetryService - 수집 완료 - 서버: pqgetap1-시세포착2, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_cap2.log, 타입: 주기, 수집총라인수: 42, 정규화저장건수: 5, 정규화실패건수: 0
+2026-06-02 14:56:02.320 [scheduling-1] INFO  CollectScheduler - 주기 수집 실행 - serverId: pjpsap01-주파수클럽, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_jpc.log, 간격: 2분, 179번째 실행, schedule: 주기|*|090000|2|235959
+2026-06-02 14:56:02.327 [scheduling-1] INFO  CollectRetryService - 수집 완료 - 서버: pjpsap01-주파수클럽, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_jpc.log, 타입: 주기, 수집총라인수: 42, 정규화저장건수: 5, 정규화실패건수: 0
+2026-06-02 14:56:02.328 [scheduling-1] INFO  CollectScheduler - 주기 수집 실행 - serverId: pmaster2-마스터, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_master.log, 간격: 2분, 179번째 실행, schedule: 주기|*|090000|2|235959
+2026-06-02 14:56:02.335 [scheduling-1] INFO  CollectRetryService - 수집 완료 - 서버: pmaster2-마스터, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_master.log, 타입: 주기, 수집총라인수: 38, 정규화저장건수: 5, 정규화실패건수: 0
+2026-06-02 14:57:02.447 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-06-02 14:57:02.448 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_sise.log, scheduleExpression: 주기|*|090000|2|235959
+2026-06-02 14:57:02.448 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-06-02 14:57:02.449 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_aor.log, scheduleExpression: 주기|*|090000|2|235959
+2026-06-02 14:57:02.449 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-06-02 14:57:02.450 [scheduling-1] INFO  CollectScheduleParser -   [3] serverId: pqgetap1-시세포착1, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_cap1.log, scheduleExpression: 주기|*|090000|2|235959
+2026-06-02 14:57:02.450 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-06-02 14:57:02.451 [scheduling-1] INFO  CollectScheduleParser -   [4] serverId: pqgetap1-시세포착2, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_cap2.log, scheduleExpression: 주기|*|090000|2|235959
+2026-06-02 14:57:02.452 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-06-02 14:57:02.452 [scheduling-1] INFO  CollectScheduleParser -   [5] serverId: pjpsap01-주파수클럽, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_jpc.log, scheduleExpression: 주기|*|090000|2|235959
+2026-06-02 14:57:02.453 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-06-02 14:57:02.454 [scheduling-1] INFO  CollectScheduleParser -   [6] serverId: pmaster2-마스터, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_master.log, scheduleExpression: 주기|*|090000|2|235959
+2026-06-02 15:13:02.864 [restartedMain] INFO  CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 25396 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\bin\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
+2026-06-02 15:13:02.864 [restartedMain] INFO  CollectApplication - The following 1 profile is active: "local"
+2026-06-02 15:13:03.851 [restartedMain] INFO  CollectScheduler - <<< CollectScheduler initialized with configuration: >>>
+2026-06-02 15:13:03.853 [restartedMain] INFO  CollectScheduler -   Schedule file path: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
+2026-06-02 15:13:03.854 [restartedMain] INFO  CollectScheduler -   Collect mode: local
+2026-06-02 15:13:03.854 [restartedMain] INFO  CollectScheduler -   SFTP port: 22
+2026-06-02 15:13:03.854 [restartedMain] INFO  CollectScheduler -   SFTP username: local_user
+2026-06-02 15:13:03.854 [restartedMain] INFO  CollectScheduler -   Schedule reload interval (ms): 60000
+2026-06-02 15:13:03.855 [restartedMain] INFO  CollectScheduler - <<< Configuration initialized >>>
+2026-06-02 15:13:03.984 [restartedMain] INFO  CollectApplication - Started CollectApplication in 1.58 seconds (process running for 2.158)
+2026-06-02 15:13:03.994 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-06-02 15:13:03.994 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: dlprem01-테스트개발, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_sise.log, scheduleExpression: 주기|*|090000|2|235959
+2026-06-02 15:13:03.995 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-06-02 15:13:03.995 [scheduling-1] INFO  CollectScheduleParser -   [2] serverId: pamoap01-자동주문, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_aor.log, scheduleExpression: 주기|*|090000|2|235959
+2026-06-02 15:13:03.996 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-06-02 15:13:03.996 [scheduling-1] INFO  CollectScheduleParser -   [3] serverId: pqgetap1-시세포착1, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_cap1.log, scheduleExpression: 주기|*|090000|2|235959
+2026-06-02 15:13:03.996 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-06-02 15:13:03.997 [scheduling-1] INFO  CollectScheduleParser -   [4] serverId: pqgetap2-시세포착2, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_cap2.log, scheduleExpression: 주기|*|090000|2|235959
+2026-06-02 15:13:03.997 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-06-02 15:13:03.997 [scheduling-1] INFO  CollectScheduleParser -   [5] serverId: pjpsap01-주파수클럽, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_jpc.log, scheduleExpression: 주기|*|090000|2|235959
+2026-06-02 15:13:03.998 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-06-02 15:13:03.998 [scheduling-1] INFO  CollectScheduleParser -   [6] serverId: pmaster2-마스터, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_master.log, scheduleExpression: 주기|*|090000|2|235959

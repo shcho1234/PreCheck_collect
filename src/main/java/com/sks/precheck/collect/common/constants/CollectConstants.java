@@ -11,7 +11,7 @@ public final class CollectConstants {
     public static final long PART_COLLECT_SIZE_LIMIT_BYTES = 50L * 1024 * 1024;
 
     public static final int MAX_RETRY_COUNT = 3;
-    public static final long RETRY_DELAY_MILLISECONDS = 300_000L;
+    public static final long RETRY_DELAY_MILLISECONDS = 10_000L;
 
     public static final String LOG_TIMESTAMP_FORMAT = "yyyy/MM/dd HH:mm:ss.SSS";
     public static final String COLLECT_DATE_FORMAT = "yyyyMMdd";

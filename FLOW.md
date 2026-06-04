@@ -254,7 +254,7 @@ CollectRetryService.java
   @Retryable(
       retryFor = {CollectException.class},
       maxAttemptsExpression = "#{...CollectConstants.MAX_RETRY_COUNT + 1}",  // 4회
-      backoff = @Backoff(delayExpression = "#{...RETRY_DELAY_MILLISECONDS}") // 5분
+      backoff = @Backoff(delayExpression = "#{...RETRY_DELAY_MILLISECONDS}") // 10초
   )
   collectWithRetry(historyId, schedule, scheduleType, port, username, password) {
 
@@ -505,4 +505,4 @@ CollectScheduleVo (서버ID, IP, 파일경로, 스케줄표현식)
 | `INIT_COLLECT_SIZE_LIMIT_BYTES` | 300MB | 배치 수집 파일 크기 한도 |
 | `PART_COLLECT_SIZE_LIMIT_BYTES` | 50MB  | 주기 증분 크기 한도 |
 | `MAX_RETRY_COUNT` | 3 | 재시도 횟수 (최초 포함 총 4회) |
-| `RETRY_DELAY_MILLISECONDS` | 300,000 (5분) | 재시도 간격 |
+| `RETRY_DELAY_MILLISECONDS` | 10,000 (10초) | 재시도 간격 |

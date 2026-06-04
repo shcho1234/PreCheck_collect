@@ -10,7 +10,7 @@ import org.springframework.retry.support.RetryTemplate;
 /**
  * 수집 서버 재시도 설정을 제공한다.
  *
- * 실패 시 5분 간격으로 최대 3회 재시도한다(최초 시도 제외).
+ * 실패 시 10초 간격으로 최대 3회 재시도한다(최초 시도 제외).
  */
 @Configuration
 @EnableRetry

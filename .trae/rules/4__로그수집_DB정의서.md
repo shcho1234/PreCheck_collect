@@ -318,7 +318,7 @@ CREATE TABLE TB_COLLECT_HISTORY (
     RETRY_COUNT         NUMERIC(2, 0)       DEFAULT 0,
     -- 수집 재시도 횟수 (최초 시도 불포함)
     -- 0: 최초 시도 성공, 1~3: 재시도 후 성공 또는 실패
-    -- 명세서 기준: 최초 실패 후 5분 간격 재시도 최대 3회
+    -- 명세서 기준: 최초 실패 후 10초 간격 재시도 최대 3회
 
     FAIL_REASON         VARCHAR(1000),
     -- 수집 실패 사유 (FAIL 상태일 때 기록)

@@ -4,6 +4,13 @@ spring:
   profiles:
     active: local
 
+precheck:
+  collect:
+    async:
+      core-pool-size: 5
+      max-pool-size: 20
+      queue-capacity: 100
+
 mybatis:
   mapper-locations: classpath:/mapper/*.xml
   type-aliases-package: com.sks.precheck.collect.domain

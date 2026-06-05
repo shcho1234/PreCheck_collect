@@ -8,6 +8,7 @@ import com.sks.precheck.collect.domain.CollectHistory;
 import com.sks.precheck.collect.mapper.CollectHistoryMapper;
 import com.sks.precheck.collect.vo.CollectScheduleVo;
 import java.time.LocalDateTime;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 /**
@@ -43,7 +44,7 @@ public class CollectService {
     }
 
     /**
-     * 수집을 실행한다.
+     * 수집을 비동기로 실행한다.
      *
      * 처리 순서:
      *   1. 스케줄 표현식에서 수집 타입(배치/주기)을 파싱한다.
@@ -53,13 +54,16 @@ public class CollectService {
      *   4. CollectRetryService.collectWithRetry()를 호출하여 실제 수집을 위임한다.
      *      → 수집 성공/실패/제외 여부에 따라 이력 상태는 collectWithRetry 내부에서 갱신된다.
      *
+     * @Async("collectExecutor") 로 인해 collectExecutor 스레드풀에서 실행된다.
+     * 재시도 backoff sleep이 스케줄러 스레드를 블로킹하지 않는다.
+     *
      * @param schedule 스케줄 정보 (서버 IP, 파일 경로, 스케줄 표현식 포함)
      * @param port     SSH 포트(보통 22)
      * @param username SFTP 계정
      * @param password SFTP 비밀번호
-     * @return 이번 수집에서 TB_COLLECT_LOG에 저장된 정규화 로그 건수
      */
-    public int collect(CollectScheduleVo schedule, int port, String username, String password) {
+    @Async("collectExecutor")
+    public void collect(CollectScheduleVo schedule, int port, String username, String password) {
 
         // ── Step 1. 스케줄 표현식에서 수집 타입 추출 ──────────────────────────────
         // 표현식 형식: "배치|..." 또는 "주기|..."
@@ -89,7 +93,7 @@ public class CollectService {
 
         // ── Step 4. 실제 수집 위임 (재시도 포함) ─────────────────────────────────
         // CollectRetryService의 AOP 프록시를 통해 호출해야 @Retryable이 정상 동작한다.
-        return collectRetryService.collectWithRetry(historyId, schedule, scheduleType, port, username, password);
+        collectRetryService.collectWithRetry(historyId, schedule, scheduleType, port, username, password);
     }
 
     /**

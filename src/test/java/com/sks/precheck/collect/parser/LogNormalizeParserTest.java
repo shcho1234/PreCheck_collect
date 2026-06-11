@@ -55,7 +55,7 @@ class LogNormalizeParserTest {
         assertNotNull(result);
         assertEquals(CollectConstants.LOG_TYPE_COMPARE, result.getLogType());
         assertEquals("JUCHE_DIFF_01", result.getLogId());
-        assertEquals("실시간정산 수신 처리", result.getLogContent());
+        assertEquals("실시간정산 수신$123$ 처리$120$", result.getLogContent());
         assertNull(result.getLogValue());
     }
 
@@ -68,7 +68,7 @@ class LogNormalizeParserTest {
         assertNotNull(result);
         assertEquals(CollectConstants.LOG_TYPE_TIME, result.getLogType());
         assertEquals("DATE_BTIME", result.getLogId());
-        assertEquals("처리시간", result.getLogContent());
+        assertEquals("처리시간 $07:35$", result.getLogContent());
         assertEquals(new BigDecimal("455"), result.getLogValue());
     }
 
@@ -90,4 +90,3 @@ class LogNormalizeParserTest {
         assertNull(result);
     }
 }
-

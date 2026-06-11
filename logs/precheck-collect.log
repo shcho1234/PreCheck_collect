@@ -23,3 +23,62 @@
 2026-06-11 15:07:16.347 [Test worker] WARN  LogNormalizeParser - LOG_ID 형식 불일치로 무시 - lineNumber: 1, logId: disk_home
 2026-06-11 15:07:16.349 [Test worker] WARN  LogNormalizeParser - 수치형 로그 값 토큰 개수 오류로 무시 - lineNumber: 1, tokenCount: 2, rawLog: @@@[2026/05/28 13:01:09.555][수치][PROC_AO_TR]|처리 $4$ 중 $5$|@@@
 2026-06-11 15:07:16.350 [Test worker] WARN  LogNormalizeParser - 시간형 로그에 수치 토큰이 포함되어 무시 - lineNumber: 1, token: $735$, rawLog: @@@[2026/05/01 09:00:01.123][시간][DATE_BTIME]|처리시간 $735$|@@@
+2026-06-11 15:48:01.769 [restartedMain] INFO  CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 15340 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\build\classes\java\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
+2026-06-11 15:48:01.769 [restartedMain] INFO  CollectApplication - The following 1 profile is active: "local"
+2026-06-11 15:48:02.754 [restartedMain] INFO  CollectScheduler - <<< CollectScheduler initialized with configuration: >>>
+2026-06-11 15:48:02.754 [restartedMain] INFO  CollectScheduler -   Schedule file path: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
+2026-06-11 15:48:02.754 [restartedMain] INFO  CollectScheduler -   Collect mode: local
+2026-06-11 15:48:02.754 [restartedMain] INFO  CollectScheduler -   SFTP port: 22
+2026-06-11 15:48:02.754 [restartedMain] INFO  CollectScheduler -   SFTP username: local_user
+2026-06-11 15:48:02.754 [restartedMain] INFO  CollectScheduler -   Schedule reload interval (ms): 60000
+2026-06-11 15:48:02.754 [restartedMain] INFO  CollectScheduler - <<< Configuration initialized >>>
+2026-06-11 15:48:02.915 [restartedMain] INFO  CollectApplication - Started CollectApplication in 1.594 seconds (process running for 2.029)
+2026-06-11 15:48:02.921 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-06-11 15:48:02.922 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: pjpsap01-주파수클럽, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_jpc.log, scheduleExpression: 주기|*|080000|1|235959
+2026-06-11 15:49:00.253 [scheduling-1] INFO  CollectScheduler - 주기 수집 실행 - serverId: pjpsap01-주파수클럽, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_jpc.log, 간격: 1분, 470번째 실행, schedule: 주기|*|080000|1|235959
+2026-06-11 15:49:00.642 [collect-async-1] INFO  CollectRetryService - 수집 완료 - 서버: pjpsap01-주파수클럽, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_jpc.log, 타입: 주기, 수집총라인수: 44, 정규화저장건수: 7, 정규화실패건수: 0
+2026-06-11 15:49:03.282 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-06-11 15:49:03.283 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: pjpsap01-주파수클럽, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_jpc.log, scheduleExpression: 주기|*|080000|1|235959
+2026-06-11 15:50:00.461 [scheduling-1] INFO  CollectScheduler - 주기 수집 실행 - serverId: pjpsap01-주파수클럽, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_jpc.log, 간격: 1분, 471번째 실행, schedule: 주기|*|080000|1|235959
+2026-06-11 15:50:00.467 [collect-async-2] INFO  CollectRetryService - 수집 완료 - 서버: pjpsap01-주파수클럽, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_jpc.log, 타입: 주기, 수집총라인수: 0, 정규화저장건수: 0, 정규화실패건수: 0
+2026-06-11 15:50:03.467 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-06-11 15:50:03.467 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: pjpsap01-주파수클럽, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_jpc.log, scheduleExpression: 주기|*|080000|1|235959
+2026-06-11 15:51:00.654 [scheduling-1] INFO  CollectScheduler - 주기 수집 실행 - serverId: pjpsap01-주파수클럽, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_jpc.log, 간격: 1분, 472번째 실행, schedule: 주기|*|080000|1|235959
+2026-06-11 15:51:00.659 [collect-async-3] INFO  CollectRetryService - 수집 완료 - 서버: pjpsap01-주파수클럽, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_jpc.log, 타입: 주기, 수집총라인수: 0, 정규화저장건수: 0, 정규화실패건수: 0
+2026-06-11 15:51:03.658 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-06-11 15:51:03.658 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: pjpsap01-주파수클럽, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_jpc.log, scheduleExpression: 주기|*|080000|1|235959
+2026-06-11 15:54:43.401 [Test worker] INFO  CollectApplicationTests - Starting CollectApplicationTests using Java 17.0.19 with PID 23136 (started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
+2026-06-11 15:54:43.404 [Test worker] INFO  CollectApplicationTests - The following 1 profile is active: "local"
+2026-06-11 15:54:43.982 [Test worker] INFO  CollectScheduler - <<< CollectScheduler initialized with configuration: >>>
+2026-06-11 15:54:43.983 [Test worker] INFO  CollectScheduler -   Schedule file path: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
+2026-06-11 15:54:43.983 [Test worker] INFO  CollectScheduler -   Collect mode: local
+2026-06-11 15:54:43.983 [Test worker] INFO  CollectScheduler -   SFTP port: 22
+2026-06-11 15:54:43.983 [Test worker] INFO  CollectScheduler -   SFTP username: local_user
+2026-06-11 15:54:43.983 [Test worker] INFO  CollectScheduler -   Schedule reload interval (ms): 60000
+2026-06-11 15:54:43.983 [Test worker] INFO  CollectScheduler - <<< Configuration initialized >>>
+2026-06-11 15:54:44.062 [Test worker] INFO  CollectApplicationTests - Started CollectApplicationTests in 0.889 seconds (process running for 1.604)
+2026-06-11 15:54:44.075 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-06-11 15:54:44.076 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: pjpsap01-주파수클럽, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_jpc.log, scheduleExpression: 주기|*|080000|1|235959
+2026-06-11 15:54:44.607 [Test worker] WARN  LogNormalizeParser - LOG_ID 형식 불일치로 무시 - lineNumber: 1, logId: disk_home
+2026-06-11 15:54:44.610 [Test worker] WARN  LogNormalizeParser - 수치형 로그 값 토큰 개수 오류로 무시 - lineNumber: 1, tokenCount: 2, rawLog: @@@[2026/05/28 13:01:09.555][수치][PROC_AO_TR]|처리 $4$ 중 $5$|@@@
+2026-06-11 15:54:44.612 [Test worker] WARN  LogNormalizeParser - 시간형 로그에 수치 토큰이 포함되어 무시 - lineNumber: 1, token: $735$, rawLog: @@@[2026/05/01 09:00:01.123][시간][DATE_BTIME]|처리시간 $735$|@@@
+2026-06-11 15:57:39.758 [restartedMain] INFO  CollectApplication - Starting CollectApplication using Java 17.0.19 with PID 21740 (C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\build\classes\java\main started by 20200161 in C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect)
+2026-06-11 15:57:39.761 [restartedMain] INFO  CollectApplication - The following 1 profile is active: "local"
+2026-06-11 15:57:40.681 [restartedMain] INFO  CollectScheduler - <<< CollectScheduler initialized with configuration: >>>
+2026-06-11 15:57:40.682 [restartedMain] INFO  CollectScheduler -   Schedule file path: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\schedule_sample\PreCheck_CollectLogs_Schedule.conf
+2026-06-11 15:57:40.682 [restartedMain] INFO  CollectScheduler -   Collect mode: local
+2026-06-11 15:57:40.682 [restartedMain] INFO  CollectScheduler -   SFTP port: 22
+2026-06-11 15:57:40.682 [restartedMain] INFO  CollectScheduler -   SFTP username: local_user
+2026-06-11 15:57:40.682 [restartedMain] INFO  CollectScheduler -   Schedule reload interval (ms): 60000
+2026-06-11 15:57:40.683 [restartedMain] INFO  CollectScheduler - <<< Configuration initialized >>>
+2026-06-11 15:57:40.821 [restartedMain] INFO  CollectApplication - Started CollectApplication in 1.476 seconds (process running for 1.891)
+2026-06-11 15:57:40.830 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-06-11 15:57:40.831 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: pjpsap01-주파수클럽, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_jpc.log, scheduleExpression: 주기|*|080000|1|235959
+2026-06-11 15:58:00.858 [scheduling-1] INFO  CollectScheduler - 주기 수집 실행 - serverId: pjpsap01-주파수클럽, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_jpc.log, 간격: 1분, 479번째 실행, schedule: 주기|*|080000|1|235959
+2026-06-11 15:58:01.205 [collect-async-1] INFO  CollectRetryService - 수집 완료 - 서버: pjpsap01-주파수클럽, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_jpc.log, 타입: 주기, 수집총라인수: 0, 정규화저장건수: 0, 정규화실패건수: 0
+2026-06-11 15:58:40.956 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-06-11 15:58:40.956 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: pjpsap01-주파수클럽, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_jpc.log, scheduleExpression: 주기|*|080000|1|235959
+2026-06-11 15:59:00.986 [scheduling-1] INFO  CollectScheduler - 주기 수집 실행 - serverId: pjpsap01-주파수클럽, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_jpc.log, 간격: 1분, 480번째 실행, schedule: 주기|*|080000|1|235959
+2026-06-11 15:59:01.015 [collect-async-2] INFO  CollectRetryService - 수집 완료 - 서버: pjpsap01-주파수클럽, 파일: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_jpc.log, 타입: 주기, 수집총라인수: 44, 정규화저장건수: 7, 정규화실패건수: 0
+2026-06-11 15:59:41.056 [scheduling-1] INFO  CollectScheduleParser - =============================
+2026-06-11 15:59:41.057 [scheduling-1] INFO  CollectScheduleParser -   [1] serverId: pjpsap01-주파수클럽, serverIp: 127.0.0.1, sourceFilePath: C:\Users\20200161\Desktop\PreCheck_work\Precheck_project\Precheck_SKSCh1\precheck_collect\collect\log_sample\monitoring_jpc.log, scheduleExpression: 주기|*|080000|1|235959

@@ -240,7 +240,7 @@ public class LogNormalizeParser {
                 addFailDetail(failDetails, lineNumber, "비교형 로그에 시간 토큰 포함");
                 return null;
             }
-            logContent = normalizeContent(removeTokensFromContent(contentPart));
+            logContent = contentPart;
         } else if (CollectConstants.LOG_TYPE_TIME.equals(logType)) {
             if (valueTokens.size() != 1) {
                 log.warn("시간형 로그 값 토큰 개수 오류로 무시 - lineNumber: {}, tokenCount: {}, rawLog: {}",
@@ -261,7 +261,7 @@ public class LogNormalizeParser {
                 return null;
             }
             logValue = BigDecimal.valueOf(minutes);
-            logContent = normalizeContent(removeTokensFromContent(contentPart));
+            logContent = contentPart;
         } else {
             if (!valueTokens.isEmpty()) {
                 log.warn("값 토큰이 포함된 비수치/비교/시간 로그로 무시 - lineNumber: {}, logType: {}, rawLog: {}",

@@ -21,6 +21,8 @@ public final class CollectConstants {
     public static final String LOG_TYPE_DATE = "날짜";
     public static final String LOG_TYPE_NUMERIC = "수치";
     public static final String LOG_TYPE_EXIST = "존재";
+    public static final String LOG_TYPE_COMPARE = "비교";
+    public static final String LOG_TYPE_TIME = "시간";
 
     public static final String STATUS_SUCCESS = "SUCCESS";
     public static final String STATUS_FAIL = "FAIL";

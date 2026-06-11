@@ -12,6 +12,7 @@ import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.logging.log4j.LogManager;
@@ -20,52 +21,33 @@ import org.apache.logging.log4j.Logger;
 /**
  * 정규화 로그 형식(@@@...@@@)을 파싱하여 CollectLog 도메인 객체로 변환하는 파서.
  *
- * 정규화 로그 형식:
- *   @@@[yyyy/MM/dd HH:mm:ss.SSS][로그타입][LOG_ID]|로그내용|[$수치값$]@@@
+ * 정규화 로그 형식(로그포맷정의서 v1.1):
+ *   @@@[yyyy/MM/dd HH:mm:ss.SSS][입력타입][LOG_ID]|로그내용|...@@@
  *
- *   예시 (텍스트형):  @@@[2024/01/15 09:30:00.123][TEXT][SYS_START]|시스템 시작 완료|@@@
- *   예시 (수치형):    @@@[2024/01/15 09:30:00.123][NUMERIC][CPU_USAGE]|CPU 사용률||$85.3$@@@
+ * 값 토큰 규칙:
+ *   - 수치/비교/시간은 $...$ 값 토큰을 사용한다.
+ *   - $...$ 안에 콜론(:)이 포함되면 시간값(HH:mm)으로, 없으면 수치값(정수/실수)으로 간주한다.
  *
- * 파싱 규칙:
- *   - 한 라인에 정규화 로그(@@@...@@@)가 1건만 존재해야 한다.
- *   - 시작(@@@)은 있으나 종료(@@@)가 없으면 해당 라인을 무시한다.
- *   - 포맷 불일치, 지원하지 않는 로그 타입, LOG_ID 형식 오류 등도 무시하고 null을 반환한다.
- *   - 무시된 라인은 WARN 로그로 기록하여 운영 중 원인 파악을 돕는다.
- *
- * 지원하는 로그 타입 (CollectConstants 참조):
- *   TEXT, INFO, DATE, NUMERIC, EXIST
- *   NUMERIC 타입은 $값$ 형식의 수치 토큰이 필수이다.
+ * 입력 타입(CollectConstants 참조):
+ *   문구, 정보, 날짜, 수치, 존재, 비교, 시간
  */
 public class LogNormalizeParser {
 
     private static final Logger log = LogManager.getLogger(LogNormalizeParser.class);
 
     /**
-     * 정규화 로그 전체 패턴.
-     *
-     * 구성:
-     *   ^@@@                           : 라인 시작 후 바로 @@@
-     *   \[timestamp\]                  : yyyy/MM/dd HH:mm:ss.SSS 형식
-     *   \[logType\]                    : ] 이외 문자로 구성된 로그 타입
-     *   \[logId\]                      : ] 이외 문자로 구성된 LOG ID
-     *   |logContent|                   : | 이외 문자로 구성된 로그 내용 (빈 문자열 허용)
-     *   ($logValueToken$)?             : $로 감싼 수치 토큰 (선택, NUMERIC 타입에만 사용)
-     *   @@@$                           : @@@로 끝
+     * 정규화 로그 헤더(@@@[timestamp][type][logId]) 파싱용 패턴.
      */
-    private static final Pattern NORMALIZED_LOG_PATTERN = Pattern.compile(
+    private static final Pattern HEADER_PATTERN = Pattern.compile(
             "^@@@\\[(?<timestamp>\\d{4}/\\d{2}/\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{3})\\]" +
                     "\\[(?<logType>[^\\]]+)\\]" +
-                    "\\[(?<logId>[^\\]]+)\\]" +
-                    "\\|(?<logContent>[^|]*)\\|" +
-                    "(?<logValueToken>\\$[^$]+\\$)?" +
-                    "@@@$"
+                    "\\[(?<logId>[^\\]]+)\\]"
     );
 
-    // LOG_ID는 영문(대소문자)·숫자·언더스코어·한글·공백을 허용하며 최대 30자이다.
-    private static final Pattern LOG_ID_PATTERN = Pattern.compile("^[A-Za-z0-9_\\p{IsHangul} ]{1,30}$");
+    private static final Pattern LOG_ID_PATTERN = Pattern.compile("^[A-Z0-9_]{1,30}$");
 
-    // $값$ 형식의 수치 토큰 패턴. 내부 값을 "value" 그룹으로 추출한다.
-    private static final Pattern LOG_VALUE_PATTERN = Pattern.compile("^\\$(?<value>[^$]+)\\$$");
+    private static final Pattern VALUE_TOKEN_PATTERN = Pattern.compile("\\$[^$]+\\$");
+    private static final Pattern WRAPPED_VALUE_PATTERN = Pattern.compile("^\\$(?<value>[^$]+)\\$$");
 
     /**
      * 로컬 파일을 처음부터 끝까지 읽으며 정규화 로그를 추출한다.
@@ -145,23 +127,59 @@ public class LogNormalizeParser {
         }
 
         // ── Step 4. rawLog 추출 및 정규식 파싱 ──────────────────────────────
-        // @@@...@@@ 전체를 잘라내어 NORMALIZED_LOG_PATTERN에 매칭한다.
         String rawLog = line.substring(start, afterEnd);
-        Matcher matcher = NORMALIZED_LOG_PATTERN.matcher(rawLog);
-        if (!matcher.matches()) {
+        if (!rawLog.startsWith("@@@") || !rawLog.endsWith("@@@")) {
             log.warn("정규화 로그 포맷 불일치로 무시 - lineNumber: {}, rawLog: {}", lineNumber, rawLog);
             addFailDetail(failDetails, lineNumber, "정규화 로그 포맷 불일치 - " + rawLog);
             return null;
         }
 
-        String timestampText = matcher.group("timestamp");
-        String logType       = matcher.group("logType");
-        String logId         = matcher.group("logId");
-        String logContent    = matcher.group("logContent");
-        String logValueToken = matcher.group("logValueToken"); // NUMERIC이 아니면 null
+        String body = rawLog.substring(0, rawLog.length() - 3);
+        Matcher headerMatcher = HEADER_PATTERN.matcher(body);
+        if (!headerMatcher.find()) {
+            log.warn("정규화 로그 헤더 포맷 불일치로 무시 - lineNumber: {}, rawLog: {}", lineNumber, rawLog);
+            addFailDetail(failDetails, lineNumber, "정규화 로그 헤더 포맷 불일치 - " + rawLog);
+            return null;
+        }
+
+        String timestampText = headerMatcher.group("timestamp");
+        String logType = headerMatcher.group("logType");
+        String logId = headerMatcher.group("logId");
+        String remainder = body.substring(headerMatcher.end());
+
+        if (!remainder.startsWith("|")) {
+            log.warn("정규화 로그 내용 구분자(|) 누락으로 무시 - lineNumber: {}, rawLog: {}", lineNumber, rawLog);
+            addFailDetail(failDetails, lineNumber, "정규화 로그 내용 구분자(|) 누락");
+            return null;
+        }
+
+        int secondPipe = remainder.indexOf('|', 1);
+        if (secondPipe < 0) {
+            log.warn("정규화 로그 내용 종료 구분자(|) 누락으로 무시 - lineNumber: {}, rawLog: {}", lineNumber, rawLog);
+            addFailDetail(failDetails, lineNumber, "정규화 로그 내용 종료 구분자(|) 누락");
+            return null;
+        }
+
+        if (remainder.indexOf('|', secondPipe + 1) >= 0) {
+            log.warn("정규화 로그 내용에 '|'가 3개 이상으로 무시 - lineNumber: {}, rawLog: {}", lineNumber, rawLog);
+            addFailDetail(failDetails, lineNumber, "정규화 로그 내용 구분자(|) 과다");
+            return null;
+        }
+
+        String contentPart = remainder.substring(1, secondPipe);
+        String tailPart = remainder.substring(secondPipe + 1);
+
+        List<String> valueTokens = new ArrayList<>();
+        valueTokens.addAll(extractValueTokens(contentPart));
+        valueTokens.addAll(extractValueTokens(tailPart));
+        String tailNonTokenText = VALUE_TOKEN_PATTERN.matcher(tailPart).replaceAll("").trim();
+        if (!tailNonTokenText.isEmpty()) {
+            log.warn("정규화 로그 꼬리 영역에 비토큰 문자가 포함되어 무시 - lineNumber: {}, rawLog: {}", lineNumber, rawLog);
+            addFailDetail(failDetails, lineNumber, "정규화 로그 꼬리 영역 포맷 불일치");
+            return null;
+        }
 
         // ── Step 5. 로그 타입 검증 ───────────────────────────────────────────
-        // CollectConstants에 정의된 타입(TEXT, INFO, DATE, NUMERIC, EXIST) 외에는 무시한다.
         if (!isSupportedLogType(logType)) {
             log.warn("정규화 로그 타입 불일치로 무시 - lineNumber: {}, logType: {}", lineNumber, logType);
             addFailDetail(failDetails, lineNumber, "지원하지 않는 로그 타입: " + logType);
@@ -169,7 +187,6 @@ public class LogNormalizeParser {
         }
 
         // ── Step 6. LOG_ID 형식 검증 ─────────────────────────────────────────
-        // 대문자·숫자·언더스코어, 최대 30자. 소문자나 특수문자가 포함되면 무시한다.
         if (!LOG_ID_PATTERN.matcher(logId).matches()) {
             log.warn("LOG_ID 형식 불일치로 무시 - lineNumber: {}, logId: {}", lineNumber, logId);
             addFailDetail(failDetails, lineNumber, "LOG_ID 형식 불일치: " + logId);
@@ -187,19 +204,69 @@ public class LogNormalizeParser {
             return null;
         }
 
-        // ── Step 8. NUMERIC 타입 수치 토큰 파싱 ─────────────────────────────
-        // NUMERIC 타입은 $값$ 형식의 수치 토큰이 필수이다.
-        // 토큰이 없거나 숫자로 변환할 수 없으면 무시한다.
+        // ── Step 8. 타입별 값 토큰 검증/파싱 ──────────────────────────────────
         BigDecimal logValue = null;
+        String logContent = contentPart;
+
         if (CollectConstants.LOG_TYPE_NUMERIC.equals(logType)) {
-            if (logValueToken == null || logValueToken.isEmpty()) {
-                log.warn("수치형 로그 값 누락으로 무시 - lineNumber: {}, rawLog: {}", lineNumber, rawLog);
-                addFailDetail(failDetails, lineNumber, "수치형 로그 값 누락");
+            if (valueTokens.size() != 1) {
+                log.warn("수치형 로그 값 토큰 개수 오류로 무시 - lineNumber: {}, tokenCount: {}, rawLog: {}",
+                        lineNumber, valueTokens.size(), rawLog);
+                addFailDetail(failDetails, lineNumber, "수치형 로그 값 토큰 개수 오류: " + valueTokens.size());
                 return null;
             }
-            logValue = parseLogValue(logValueToken, lineNumber);
+            String token = valueTokens.get(0);
+            if (isTimeToken(token)) {
+                log.warn("수치형 로그에 시간 토큰이 포함되어 무시 - lineNumber: {}, token: {}, rawLog: {}",
+                        lineNumber, token, rawLog);
+                addFailDetail(failDetails, lineNumber, "수치형 로그에 시간 토큰 포함: " + token);
+                return null;
+            }
+            logValue = parseNumericValue(token, lineNumber);
             if (logValue == null) {
-                addFailDetail(failDetails, lineNumber, "수치형 로그 값 파싱 실패: " + logValueToken);
+                addFailDetail(failDetails, lineNumber, "수치형 로그 값 파싱 실패: " + token);
+                return null;
+            }
+            logContent = normalizeContent(removeTokensFromContent(contentPart));
+        } else if (CollectConstants.LOG_TYPE_COMPARE.equals(logType)) {
+            if (valueTokens.size() != 2) {
+                log.warn("비교형 로그 값 토큰 개수 오류로 무시 - lineNumber: {}, tokenCount: {}, rawLog: {}",
+                        lineNumber, valueTokens.size(), rawLog);
+                addFailDetail(failDetails, lineNumber, "비교형 로그 값 토큰 개수 오류: " + valueTokens.size());
+                return null;
+            }
+            if (valueTokens.stream().anyMatch(this::isTimeToken)) {
+                log.warn("비교형 로그에 시간 토큰이 포함되어 무시 - lineNumber: {}, rawLog: {}", lineNumber, rawLog);
+                addFailDetail(failDetails, lineNumber, "비교형 로그에 시간 토큰 포함");
+                return null;
+            }
+            logContent = normalizeContent(removeTokensFromContent(contentPart));
+        } else if (CollectConstants.LOG_TYPE_TIME.equals(logType)) {
+            if (valueTokens.size() != 1) {
+                log.warn("시간형 로그 값 토큰 개수 오류로 무시 - lineNumber: {}, tokenCount: {}, rawLog: {}",
+                        lineNumber, valueTokens.size(), rawLog);
+                addFailDetail(failDetails, lineNumber, "시간형 로그 값 토큰 개수 오류: " + valueTokens.size());
+                return null;
+            }
+            String token = valueTokens.get(0);
+            if (!isTimeToken(token)) {
+                log.warn("시간형 로그에 수치 토큰이 포함되어 무시 - lineNumber: {}, token: {}, rawLog: {}",
+                        lineNumber, token, rawLog);
+                addFailDetail(failDetails, lineNumber, "시간형 로그에 수치 토큰 포함: " + token);
+                return null;
+            }
+            Integer minutes = parseTimeMinutes(token, lineNumber);
+            if (minutes == null) {
+                addFailDetail(failDetails, lineNumber, "시간형 로그 값 파싱 실패: " + token);
+                return null;
+            }
+            logValue = BigDecimal.valueOf(minutes);
+            logContent = normalizeContent(removeTokensFromContent(contentPart));
+        } else {
+            if (!valueTokens.isEmpty()) {
+                log.warn("값 토큰이 포함된 비수치/비교/시간 로그로 무시 - lineNumber: {}, logType: {}, rawLog: {}",
+                        lineNumber, logType, rawLog);
+                addFailDetail(failDetails, lineNumber, "비지원 타입에 값 토큰 포함: " + logType);
                 return null;
             }
         }
@@ -212,7 +279,7 @@ public class LogNormalizeParser {
         collectLog.setLogId(logId);
         collectLog.setLogTimestamp(logTimestamp);
         collectLog.setLogContent(logContent);
-        collectLog.setLogValue(logValue);        // NUMERIC이 아니면 null
+        collectLog.setLogValue(logValue);
         collectLog.setRawLog(rawLog);
         collectLog.setLineNumber(lineNumber);
         return collectLog;
@@ -228,7 +295,9 @@ public class LogNormalizeParser {
                 || CollectConstants.LOG_TYPE_INFO.equals(logType)
                 || CollectConstants.LOG_TYPE_DATE.equals(logType)
                 || CollectConstants.LOG_TYPE_NUMERIC.equals(logType)
-                || CollectConstants.LOG_TYPE_EXIST.equals(logType);
+                || CollectConstants.LOG_TYPE_EXIST.equals(logType)
+                || CollectConstants.LOG_TYPE_COMPARE.equals(logType)
+                || CollectConstants.LOG_TYPE_TIME.equals(logType);
     }
 
     private void addFailDetail(List<String> failDetails, long lineNumber, String reason) {
@@ -248,24 +317,98 @@ public class LogNormalizeParser {
      * @param lineNumber    경고 로그 출력용 라인번호
      * @return 파싱된 BigDecimal, 실패 시 null
      */
-    private BigDecimal parseLogValue(String logValueToken, long lineNumber) {
-        Matcher valueMatcher = LOG_VALUE_PATTERN.matcher(logValueToken);
+    private BigDecimal parseNumericValue(String valueToken, long lineNumber) {
+        Matcher valueMatcher = WRAPPED_VALUE_PATTERN.matcher(valueToken);
         if (!valueMatcher.matches()) {
-            log.warn("수치형 로그 값 포맷 불일치로 무시 - lineNumber: {}, valueToken: {}", lineNumber, logValueToken);
+            log.warn("값 토큰 포맷 불일치로 무시 - lineNumber: {}, valueToken: {}", lineNumber, valueToken);
             return null;
         }
 
         String valueText = valueMatcher.group("value").trim();
         if (valueText.isEmpty()) {
-            log.warn("수치형 로그 값 공백으로 무시 - lineNumber: {}", lineNumber);
+            log.warn("값 토큰 공백으로 무시 - lineNumber: {}", lineNumber);
             return null;
         }
 
         try {
             return new BigDecimal(valueText);
         } catch (NumberFormatException e) {
-            log.warn("수치형 로그 값 파싱 실패로 무시 - lineNumber: {}, value: {}", lineNumber, valueText);
+            log.warn("값 토큰 수치 파싱 실패로 무시 - lineNumber: {}, value: {}", lineNumber, valueText);
             return null;
         }
+    }
+
+    private List<String> extractValueTokens(String text) {
+        if (text == null || text.isEmpty()) {
+            return List.of();
+        }
+        return VALUE_TOKEN_PATTERN.matcher(text)
+                .results()
+                .map(MatchResult::group)
+                .toList();
+    }
+
+    private boolean isTimeToken(String valueToken) {
+        if (valueToken == null) {
+            return false;
+        }
+        Matcher matcher = WRAPPED_VALUE_PATTERN.matcher(valueToken);
+        if (!matcher.matches()) {
+            return false;
+        }
+        return matcher.group("value").contains(":");
+    }
+
+    private Integer parseTimeMinutes(String timeToken, long lineNumber) {
+        Matcher matcher = WRAPPED_VALUE_PATTERN.matcher(timeToken);
+        if (!matcher.matches()) {
+            log.warn("시간 토큰 포맷 불일치로 무시 - lineNumber: {}, token: {}", lineNumber, timeToken);
+            return null;
+        }
+
+        String timeText = matcher.group("value").trim();
+        int colon = timeText.indexOf(':');
+        if (colon < 0 || colon != timeText.lastIndexOf(':')) {
+            log.warn("시간 토큰 포맷 불일치(HH:mm)로 무시 - lineNumber: {}, token: {}", lineNumber, timeToken);
+            return null;
+        }
+
+        String hhText = timeText.substring(0, colon);
+        String mmText = timeText.substring(colon + 1);
+        if (hhText.length() != 2 || mmText.length() != 2) {
+            log.warn("시간 토큰 포맷 불일치(HH:mm)로 무시 - lineNumber: {}, token: {}", lineNumber, timeToken);
+            return null;
+        }
+
+        int hh;
+        int mm;
+        try {
+            hh = Integer.parseInt(hhText);
+            mm = Integer.parseInt(mmText);
+        } catch (NumberFormatException e) {
+            log.warn("시간 토큰 숫자 파싱 실패로 무시 - lineNumber: {}, token: {}", lineNumber, timeToken);
+            return null;
+        }
+
+        if (hh < 0 || hh > 23 || mm < 0 || mm > 59) {
+            log.warn("시간 토큰 범위 오류로 무시 - lineNumber: {}, token: {}", lineNumber, timeToken);
+            return null;
+        }
+
+        return hh * 60 + mm;
+    }
+
+    private String removeTokensFromContent(String contentPart) {
+        if (contentPart == null || contentPart.isEmpty()) {
+            return "";
+        }
+        return VALUE_TOKEN_PATTERN.matcher(contentPart).replaceAll("");
+    }
+
+    private String normalizeContent(String contentPart) {
+        if (contentPart == null) {
+            return "";
+        }
+        return contentPart.trim().replaceAll("\\s{2,}", " ");
     }
 }

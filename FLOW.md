@@ -391,22 +391,20 @@ LogNormalizeParser.java
       // 한 라인에 @@@가 3개 이상 (로그 2건 혼재)
       if (line.indexOf("@@@", end + 3) >= 0) { WARN "2건 이상"; return null; }
 
-      // rawLog = "@@@[...][...][...]|...|$...$@@@"
+      // rawLog = "@@@[...][...][...]|...|...@@@"
       String rawLog = line.substring(start, end + 3);
 
-      // 정규식 매칭
-      Matcher matcher = NORMALIZED_LOG_PATTERN.matcher(rawLog);
-      //  패턴: ^@@@\[timestamp\]\[logType\]\[logId\]\|logContent\|($value$)?@@@$
-      if (!matcher.matches()) { WARN "포맷 불일치"; return null; }
+      // 헤더(@@@[timestamp][type][logId])를 먼저 파싱하고,
+      // 이후 |...| 구간(contentPart)과 뒤쪽(tailPart)에서 $...$ 토큰을 추출한다.
 
-      // timestamp, logType, logId, logContent, logValueToken 추출
-
-      // logType 검증: 문구/정보/날짜/수치/존재 중 하나여야 함
+      // logType 검증: 문구/정보/날짜/수치/존재/비교/시간 중 하나여야 함
       // LOG_ID 검증: 대문자+숫자+언더스코어, 최대 30자  (패턴: ^[A-Z0-9_]{1,30}$)
       // timestamp 파싱: DateUtil.parseLogTimestamp() → LocalDateTime
 
-      // [수치 타입만] "$값$" → BigDecimal 변환
-      //   (float/double 사용 금지: 소수점 정밀도 손실 방지)
+      // 값 토큰 규칙(v1.1)
+      //  - 수치: $...$ 토큰이 정확히 1개 (콜론(:) 없는 값만 허용)
+      //  - 비교: $...$ 토큰이 정확히 2개 (콜론(:) 없는 값만 허용)
+      //  - 시간: $...$ 토큰이 정확히 1개 (콜론(:) 포함, HH:mm → 분(minute) 값으로 저장)
 
       // CollectLog 반환 (serverId 등 수집 맥락 정보는 CollectRetryService에서 보완)
   }
@@ -429,6 +427,26 @@ rawLog 추출:
   logValue    = BigDecimal("80")
   rawLog      = "@@@[2026/05/01 09:00:01.123][수치][DISK_HOME]|홈디스크|$80$@@@"
   lineNumber  = 42  (파일에서의 라인번호)
+```
+
+```
+입력 라인(수치, 중간 배치):
+  2026/05/28 sis15007 @@@[2026/05/28 13:01:09.555][수치][PROC_AO_TR]|ao_tr_pro_nm PROCESS 갯수 $4$ 처리중|@@@
+
+추출 필드:
+  logType     = "수치"
+  logContent  = "ao_tr_pro_nm PROCESS 갯수 처리중"
+  logValue    = BigDecimal("4")
+```
+
+```
+입력 라인(시간):
+  2026/05/01 sis15007 @@@[2026/05/01 09:00:01.123][시간][DATE_BTIME]|처리시간 $07:35$|@@@
+
+추출 필드:
+  logType     = "시간"
+  logContent  = "처리시간"
+  logValue    = BigDecimal("455")  // 07:35 → 455분
 ```
 
 ---

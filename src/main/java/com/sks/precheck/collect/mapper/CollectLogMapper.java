@@ -29,7 +29,7 @@ public interface CollectLogMapper {
      *
      * @param collectDate 수집일자(yyyyMMdd)
      * @param serverId 서버 구분
-     * @param logType 로그 입력 타입(문구/정보/날짜/수치/존재)
+     * @param logType 로그 입력 타입(문구/정보/날짜/수치/존재/비교/시간)
      * @param logId 로그 식별 코드(선택)
      * @return 조회 결과 목록
      */

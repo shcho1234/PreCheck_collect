@@ -114,7 +114,20 @@ public class CollectRetryService {
 
         String serverId = schedule.getServerId();
         String serverIp = schedule.getServerIp();
-        String sourceFilePath = schedule.getSourceFilePath();
+
+        // 스케줄에 정의된 파일 경로 끝에 '+'가 붙어있으면 날짜 변경에 따른 라인번호 리셋을 비활성화한다.
+        // 예) "/logs/test.log+" → 실제 경로 "/logs/test.log", 날짜가 바뀌어도 증분 수집 유지
+        String filePathTemplate = schedule.getSourceFilePath();
+        boolean dateResetDisabled = filePathTemplate.endsWith(CollectConstants.FILE_PATH_NO_DATE_RESET_SUFFIX);
+        if (dateResetDisabled) {
+            filePathTemplate = filePathTemplate.substring(
+                    0, filePathTemplate.length() - CollectConstants.FILE_PATH_NO_DATE_RESET_SUFFIX.length());
+        }
+
+        // 스케줄에 정의된 파일 경로의 날짜 자리표시자(yyyymmdd)를 오늘 날짜로 치환한다.
+        // 예) "/logs/test.yyyymmdd" → "/logs/test.20260612"
+        String collectDate = DateUtil.todayCollectDate();
+        String sourceFilePath = DateUtil.resolveFilePath(filePathTemplate, collectDate);
 
         // ── Step 2. 영구 제외 대상 확인 ───────────────────────────────────────────
         // TB_COLLECT_EXCLUDE에 RESTORE_YN='N' 레코드가 있으면 제외 대상이다.
@@ -134,7 +147,7 @@ public class CollectRetryService {
         // 배치 수집은 파일 전체를 읽으므로, 파일이 너무 크면 수집 자체가 불가하다.
         // 한도를 초과한 경우 영구 제외로 등록하여 이후 스케줄에서도 시도하지 않는다.
         if ("배치".equals(scheduleType) && fileSizeBytes >= CollectConstants.INIT_COLLECT_SIZE_LIMIT_BYTES) {
-            registerExclude(historyId, schedule, CollectConstants.EXCLUDE_REASON_INIT_SIZE, fileSizeBytes,
+            registerExclude(historyId, schedule, sourceFilePath, CollectConstants.EXCLUDE_REASON_INIT_SIZE, fileSizeBytes,
                     "배치 수집 파일 크기 초과");
             updateHistorySkip(historyId, "INIT_SIZE_EXCEEDED");
             return 0;
@@ -142,11 +155,13 @@ public class CollectRetryService {
 
         // ── Step 5. 주기 수집 — 시작 라인번호 계산 ───────────────────────────────
         // 주기 수집은 직전 성공 수집이 마지막으로 읽은 라인번호 이후부터 읽는다(증분 수집).
+        // 단, 직전 성공 수집의 COLLECT_DATE가 오늘과 다르면(날짜가 바뀌면) 처음부터 다시 읽는다.
         // 이력이 없으면(첫 수집이거나 이력 없음) lastLineNumber=null이므로 1번 라인부터 시작한다.
         // 배치 수집은 항상 파일 전체를 읽으므로 lastLineNumber를 조회하지 않는다.
         Long lastLineNumber = null;
         if ("주기".equals(scheduleType)) {
-            lastLineNumber = collectHistoryMapper.findLastLineNumber(serverId, sourceFilePath);
+            String lastLineCollectDate = dateResetDisabled ? null : collectDate;
+            lastLineNumber = collectHistoryMapper.findLastLineNumber(serverId, sourceFilePath, lastLineCollectDate);
         }
         long startLineNumber = lastLineNumber == null ? 1 : lastLineNumber + 1;
 
@@ -194,16 +209,15 @@ public class CollectRetryService {
         // 파일 읽기가 완료된 후 초과 여부를 판단한다.
         // 초과한 경우 이 파일은 이후 수집에서도 계속 증가할 가능성이 높으므로 영구 제외한다.
         if ("주기".equals(scheduleType) && lineReadState.exceededPartSizeLimit) {
-            registerExclude(historyId, schedule, CollectConstants.EXCLUDE_REASON_PART_SIZE, fileSizeBytes,
+            registerExclude(historyId, schedule, sourceFilePath, CollectConstants.EXCLUDE_REASON_PART_SIZE, fileSizeBytes,
                     "주기 수집 증분 크기 초과");
             updateHistorySkip(historyId, "PART_SIZE_EXCEEDED");
             return 0;
         }
 
         // ── Step 8. 파싱된 로그를 TB_COLLECT_LOG에 저장 ─────────────────────────
-        // 수집 시각과 날짜는 루프 전에 한 번만 조회하여 일관성을 유지한다.
+        // 수집 시각은 루프 전에 한 번만 조회하여 일관성을 유지한다. (collectDate는 Step 5에서 조회함)
         LocalDateTime now = LocalDateTime.now();
-        String collectDate = DateUtil.todayCollectDate();
 
         for (CollectLog logRow : parsedLogs) {
             // 각 로그 레코드마다 SEQUENCE로 PK를 채번한다.
@@ -320,6 +334,7 @@ public class CollectRetryService {
     private void registerExclude(
             Long historyId,
             CollectScheduleVo schedule,
+            String sourceFilePath,
             String excludeReason,
             long fileSizeBytes,
             String detail
@@ -330,7 +345,7 @@ public class CollectRetryService {
                 excludeId,
                 schedule.getServerId(),
                 schedule.getServerIp(),
-                schedule.getSourceFilePath(),
+                sourceFilePath,
                 excludeReason,
                 fileSizeBytes,
                 detail

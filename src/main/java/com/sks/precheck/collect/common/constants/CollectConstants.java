@@ -16,6 +16,12 @@ public final class CollectConstants {
     public static final String LOG_TIMESTAMP_FORMAT = "yyyy/MM/dd HH:mm:ss.SSS";
     public static final String COLLECT_DATE_FORMAT = "yyyyMMdd";
 
+    /** 수집 대상 파일 경로에서 당일 날짜(yyyyMMdd)로 치환되는 자리표시자 */
+    public static final String FILE_PATH_DATE_PLACEHOLDER = "yyyymmdd";
+
+    /** 수집 대상 파일 경로 끝에 붙으면 날짜 변경에 따른 라인번호 리셋을 비활성화하는 접미사 */
+    public static final String FILE_PATH_NO_DATE_RESET_SUFFIX = "+";
+
     public static final String LOG_TYPE_TEXT = "문구";
     public static final String LOG_TYPE_INFO = "정보";
     public static final String LOG_TYPE_DATE = "날짜";

@@ -54,4 +54,19 @@ public final class DateUtil {
     public static String todayCollectDate() {
         return formatCollectDate(LocalDate.now());
     }
+
+    /**
+     * 수집 대상 파일 경로 안의 날짜 자리표시자({@value CollectConstants#FILE_PATH_DATE_PLACEHOLDER})를
+     * 수집 날짜(yyyyMMdd)로 치환한다.
+     *
+     * 예) "/logs/test.yyyymmdd" + "20260612" → "/logs/test.20260612"
+     * 자리표시자가 없으면 원본 경로를 그대로 반환한다.
+     *
+     * @param filePathTemplate 스케줄에 정의된 파일 경로 (자리표시자 포함 가능)
+     * @param collectDate 수집 날짜 (yyyyMMdd)
+     * @return 날짜가 치환된 실제 파일 경로
+     */
+    public static String resolveFilePath(String filePathTemplate, String collectDate) {
+        return filePathTemplate.replace(CollectConstants.FILE_PATH_DATE_PLACEHOLDER, collectDate);
+    }
 }

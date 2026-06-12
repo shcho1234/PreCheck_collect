@@ -277,11 +277,19 @@ CollectRetryService.java
           // TB_COLLECT_HISTORY STATUS=SKIP, return 0
       }
 
+      // --- 파일 경로 전처리 ---
+      // 경로 끝 '+' → 날짜 변경에 따른 리셋 비활성화(dateResetDisabled=true), '+' 제거
+      // 경로 내 "yyyymmdd" → 오늘 날짜(yyyyMMdd)로 치환 (예: test.yyyymmdd → test.20260612)
+
       // --- [주기] 증분 시작점 계산 ---
+      // COLLECT_DATE가 오늘과 다르면(날짜가 바뀌면) lastLineNumber를 조회하지 않고 처음부터 읽음
+      // 단, dateResetDisabled=true(경로에 '+' 접미사)면 collectDate=null로 조회하여 날짜와 무관하게 이어서 읽음
+      String collectDate = DateUtil.todayCollectDate();
       Long lastLineNumber = null;
       if ("주기".equals(scheduleType)) {
-          lastLineNumber = collectHistoryMapper.findLastLineNumber(serverId, sourceFilePath);
-          // SELECT LAST_LINE_NUMBER ... FETCH FIRST 1 ROWS ONLY
+          String lastLineCollectDate = dateResetDisabled ? null : collectDate;
+          lastLineNumber = collectHistoryMapper.findLastLineNumber(serverId, sourceFilePath, lastLineCollectDate);
+          // SELECT LAST_LINE_NUMBER ... WHERE ... [AND COLLECT_DATE = #{collectDate}] FETCH FIRST 1 ROWS ONLY
       }
       long startLineNumber = (lastLineNumber == null) ? 1 : lastLineNumber + 1;
 
